@@ -1,0 +1,244 @@
+\documentclass[12pt]{article}
+
+% =========================================================
+% IDIOMA Y TIPOGRAFÍA
+% =========================================================
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{fontspec}
+
+\setmainfont{TimesNewRoman}[
+    Path           = fonts/,
+    UprightFont    = *,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    Extension      = .ttf
+]
+
+\setmonofont{Arial}[
+    Path           = fonts/,
+    UprightFont    = *,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    Extension      = .ttf
+]
+
+\newfontfamily\calibribody{Calibri}[
+    Path           = fonts/,
+    UprightFont    = *,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    Extension      = .ttf
+]
+
+\setmainfont{Times New Roman}
+\setmonofont{Arial}
+\newfontfamily\calibribody{Calibri}
+
+% =========================================================
+% MAQUETACIÓN GENERAL
+% =========================================================
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  inner=30mm,
+  outer=30mm,
+  top=35mm,
+  bottom=30mm,
+  headheight=45pt,
+  headsep=8pt
+}
+
+\usepackage{parskip}
+\linespread{1.5}
+
+% =========================================================
+% PAQUETES GENERALES
+% =========================================================
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage[acronym]{glossaries}
+\usepackage[]{hyperref}
+\usepackage{listings}
+\usepackage{ragged2e}
+\usepackage{subcaption}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{xcolor}
+\usepackage{titletoc}
+\usepackage{xurl}
+\usepackage{listings}
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+
+\usetikzlibrary{calc}
+
+\makeglossaries
+\setlength{\arrayrulewidth}{0.1pt}
+
+% =========================================================
+% COLORES E HIPERVÍNCULOS
+% =========================================================
+\definecolor{AzulTFG}{RGB}{0, 148, 224}
+\definecolor{blueColor}{RGB}{69, 85, 107}
+\definecolor{bluelink}{RGB}{5, 99, 193}
+
+\hypersetup{
+  colorlinks=true,
+  allcolors=black,
+  linktoc=all
+}
+
+
+% =========================================================
+% FORMATO DE CAPTIONS E ÍNDICES
+% =========================================================
+\captionsetup{
+  labelfont={color=blueColor},
+  textfont=normalfont,
+  labelsep=space
+}
+
+
+% =========================================================
+% BIBLIOGRAFÍA
+% =========================================================
+\usepackage[
+  backend=biber,
+  style=ieee,
+  sorting=none,
+  autolang=other,
+  bibencoding=utf8,
+  url=true,
+  doi=true,
+  isbn=true
+]{biblatex}
+
+\addbibresource{Bibliografia/bibliografia.bib}
+
+\DefineBibliographyStrings{spanish}{%
+  bibliography = {Bibliografía},
+}
+
+% =========================================================
+% LISTINGS
+% =========================================================
+\input{Formatos/listings}
+
+% =========================================================
+% COMANDOS PERSONALIZADOS
+% =========================================================
+
+\input{Formatos/comandos}
+
+
+% =========================================================
+% PORTADA
+% =========================================================
+\input{Portada/Portada}
+
+% =========================================================
+% DOCUMENTO
+% =========================================================
+\begin{document}
+
+% ---------------------------------------------------------
+% PORTADA
+% ---------------------------------------------------------
+\printportada{Titulo en español}{Nombre del autor}{Nombre del tutor}{Julio, 2026}{TÍTULO en inglés}
+
+% ---------------------------------------------------------
+% CONFIGURACIÓN GENERAL DEL CUERPO
+% ---------------------------------------------------------
+\input{Formatos/Cuerpo}
+
+% ---------------------------------------------------------
+% PRELIMINARES
+% ---------------------------------------------------------
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\include{Cuerpo/00_Resumen_Abstract}
+
+%\input{Formatos/Contenido_roman}
+
+\clearpage
+\crearIndiceTOC
+
+\clearpage
+\crearIndiceFiguras
+
+\clearpage
+\crearIndiceTablas
+
+% ---------------------------------------------------------
+% CUERPO PRINCIPAL
+% ---------------------------------------------------------
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{Formatos/Contenido}
+\pagestyle{fancy}
+
+% =========================================================
+% CUERPO DEL TRABAJO (estructura solicitada)
+% =========================================================
+
+
+% 1 Introducción
+\include{Cuerpo/01_introduccion}
+
+% 2 Gestión del proyecto
+\include{Cuerpo/02_gestion_del_proyecto}
+
+% 3 Análisis
+\include{Cuerpo/03_analisis}
+
+% 4 Diseño e implementación
+\include{Cuerpo/04_diseno_e_implementacion}
+
+% 5 Validación del sistema
+\include{Cuerpo/05_validacion_del_sistema}
+
+% 6 Implementación
+\include{Cuerpo/06_implementacion}
+
+
+% BIBLIOGRAFÍA
+% =========================================================
+\clearpage
+\vspace*{-1cm}
+
+\nombreCapituloCabecera{RH}{Bibliografía}
+\printbibliography[title={Bibliografía}]
+
+% =========================================================
+% ANEXOS
+% =========================================================
+
+
+% Anexo i - Manuales
+\include{Cuerpo/anexo_i_manuales}
+
+% Anexo ii - Ejemplos de citas, bibliografía y glosario
+\include{Cuerpo/anexo_ii_ejemplos_citas_bibliografia_glosario}
+
+
+% GLOSARIO
+% =========================================================
+\clearpage
+\crearglosario
+\end{document}

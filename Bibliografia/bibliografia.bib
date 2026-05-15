@@ -1,0 +1,144 @@
+% =========================================================
+% bibliografia.bib
+% Base de datos de referencias bibliográficas del TFM
+% =========================================================
+%
+% Este fichero contiene todas las referencias utilizadas en el documento
+% en formato BibTeX. Es procesado automáticamente por BibLaTeX + Biber
+% para generar:
+%   - Notas al pie con referencias completas
+%   - La bibliografía final del documento
+%
+% ---------------------------------------------------------
+% 📌 ¿Cómo usar este fichero?
+% ---------------------------------------------------------
+%
+% 1. Añade una nueva referencia siguiendo el formato adecuado:
+%
+%    @tipo{clave_unica,
+%      campo = {valor}
+%    }
+%
+% 2. Usa la clave en el documento LaTeX mediante los comandos
+%    personalizados definidos en comandos.tex, por ejemplo:
+%
+%    \footcitepage{Texto citado}{clave_unica}{pagina}
+%    \footweb{clave_unica}
+%    \footbibliographypage{clave_unica}{pagina}
+%
+% 3. La bibliografía se generará automáticamente con:
+%
+%    \printbibliography
+%
+% ---------------------------------------------------------
+% 📚 Tipos de entradas más comunes
+% ---------------------------------------------------------
+%
+% 📘 Libro:
+%   @book{clave,ª
+%     author    = {Apellido, Nombre},
+%     title     = {Título},
+%     year      = {Año},
+%     publisher = {Editorial}
+%   }
+%
+% 🎓 Tesis:
+%   @phdthesis{clave,
+%     author = {Apellido, Nombre},
+%     title  = {Título},
+%     school = {Universidad},
+%     year   = {Año}
+%   }
+%
+% 🌐 Web:
+%   @online{clave,
+%     author  = {Entidad},
+%     title   = {Título},
+%     year    = {Año},
+%     url     = {https://...},
+%     urldate = {YYYY-MM}
+%   }
+%
+% 📄 Artículo:
+%   @article{clave,
+%     author  = {Autor1 and Autor2},
+%     title   = {Título},
+%     journal = {Revista},
+%     year    = {Año}
+%   }
+%
+% ---------------------------------------------------------
+% ⚠️ Reglas importantes
+% ---------------------------------------------------------
+%
+% - Cada entrada debe tener una clave única:
+%     ❌ @online{mi_ref, ...}
+%     ❌ @online{mi_ref, ...}  (duplicada)
+%     ✔ @online{mi_ref_1, ...}
+%
+% - Usa nombres descriptivos para las claves:
+%     ✔ somerville_software_engineering
+%     ❌ ref1
+%
+% - Campos obligatorios recomendados:
+%     author, title, year
+%
+% - Para webs, incluye siempre:
+%     url y urldate
+%
+% ---------------------------------------------------------
+% 💡 Notas
+% ---------------------------------------------------------
+%
+% - No es necesario ordenar manualmente la bibliografía
+% - BibLaTeX se encarga del formato (IEEE en este proyecto)
+% - Las referencias solo aparecen si se usan en el documento
+%
+% =========================================================
+
+
+
+% Ejemplo de entradas bibliográficas. Reemplaza o añade las tuyas propias.
+
+@book{somerville_software_engineering,
+  author    = {Somerville, Ian},
+  title     = {Software Engineering},
+  edition   = {10},
+  year      = {2015},
+  publisher = {Pearson Education},
+  location  = {Boston}
+}
+
+@phdthesis{fielding_rest,
+  author = {Fielding, Roy Thomas},
+  title  = {Architectural Styles and the Design of Network-based Software Architectures},
+  school = {University of California},
+  year   = {2000}
+}
+
+@online{redes_api_rest,
+  author   = {{Iniciativa Aporta}},
+  title    = {Buenas prácticas en el diseño de APIs y linked data},
+  year     = {2020},
+  url      = {https://datos.gob.es/elearning/Unidades_Didacticas/Unidad_8/contenidos/descargas/unidad_imprimible.pdf},
+  urldate  = {2026-01},
+  note     = {Gobierno de España}
+}
+
+@article{wms_overview,
+  author  = {Gu, Jinxiang and Goetschalckx, Marc and McGinnis, Leon},
+  title   = {Research on warehouse design and performance evaluation: A comprehensive review},
+  journal = {European Journal of Operational Research},
+  volume  = {203},
+  number  = {3},
+  pages   = {539--549},
+  year    = {2010}
+}
+
+@online{mysql_documentation,
+  author   = {{Oracle}},
+  title    = {MySQL 8.0 Reference Manual},
+  year     = {2024},
+  url      = {https://dev.mysql.com/doc/},
+  urldate  = {2026-01}
+}
