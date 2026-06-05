@@ -15,97 +15,136 @@
 % Mantén este archivo cargado en el preámbulo con:
 % \input{comandos}
 %
-% ---------------------------------------------------------
-% 1. CITAS Y NOTAS AL PIE
-% ---------------------------------------------------------
+% ============================================================
+% 1. Citas personalizadas en formato numérico [n]
+% ============================================================
 %
-% Estos comandos ayudan a insertar citas bibliográficas o web
-% en notas al pie de forma uniforme.
+% Recomendado en el preámbulo:
+% \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 %
-% Requisitos habituales:
-% - biblatex
-% - \fullcite disponible
+% Estos comandos muestran la cita en el texto como [n], en lugar
+% de superíndice, y colocan la referencia completa en nota al pie.
+% Además, se añaden versiones sin nota al pie para citar solo como [n].
+% ============================================================
+
+
+% \bracketfootnote{contenido}
+% Inserta una marca numérica [n] en el texto y añade el contenido
+% correspondiente como nota al pie, también identificada con [n].
 %
-% Convención:
-% - #1, #2, #3... representan los parámetros del comando
-%
+% Ejemplo:
+% Texto citado\bracketfootnote{Referencia completa.}
+\newcommand{\bracketfootnote}[1]{%
+  \refstepcounter{footnote}%
+  \textnormal{[\thefootnote]}%
+  \begingroup
+    \renewcommand{\thefootnote}{[\arabic{footnote}]}%
+    \footnotetext{#1}%
+  \endgroup
+}
+
 
 % \footcitepage{texto citado}{clave_biblatex}{pagina}
-% Sirve para mostrar un fragmento entre comillas y añadir en nota al pie
-% la referencia completa indicando la página concreta.
+% Muestra un fragmento citado entre comillas y añade una referencia
+% completa en nota al pie indicando la página concreta.
 %
 % Ejemplo:
 % \footcitepage{La seguridad es esencial}{nist2024}{15}
 %
 % Resultado:
-% “La seguridad es esencial”¹
-% y en la nota al pie: referencia completa, p. 15
+% “La seguridad es esencial” [1]
 \newcommand{\footcitepage}[3]{%
-  ``#1''\footnote{%
-    \fullcite{#2}, p.~#3%
-  }%
+  ``#1''\bracketfootnote{\fullcite{#2}, p.~#3}%
 }
+
 
 % \footbibliographypage{clave_biblatex}{pagina}
-% Sirve para insertar solo una nota al pie con la referencia completa
-% y la página, sin mostrar texto citado en el cuerpo del documento.
+% Inserta una referencia completa en nota al pie indicando la página,
+% sin mostrar texto citado en el cuerpo del documento.
 %
 % Ejemplo:
-% \footbibliographypage{nist2024}{15}
+% La gestión del riesgo debe ser continua\footbibliographypage{iso27001}{12}.
 \newcommand{\footbibliographypage}[2]{%
-  \footnote{%
-    \fullcite{#1}, p.~#2%
-  }%
+  \bracketfootnote{\fullcite{#1}, p.~#2}%
 }
+
 
 % \footwebfragment{clave_biblatex}{fragmento}
-% Sirve para citar una fuente web en nota al pie e indicar qué fragmento
-% concreto de esa fuente se está usando.
+% Cita una fuente web en nota al pie e indica el fragmento concreto
+% utilizado de esa fuente.
 %
 % Ejemplo:
-% \footwebfragment{owasp2024}{Se recomienda validar todas las entradas}
+% OWASP recomienda validar las entradas\footwebfragment{owasp2024}{Input validation}.
 \newcommand{\footwebfragment}[2]{%
-  \footnote{%
-    \fullcite{#1}. Fragmento: #2%
-  }%
+  \bracketfootnote{\fullcite{#1}. Fragmento: #2}%
 }
+
 
 % \footweb{clave_biblatex}
-% Sirve para insertar una nota al pie con la referencia completa de una web
-% o cualquier otra fuente, sin añadir fragmento ni página.
+% Inserta una referencia web completa en nota al pie.
 %
 % Ejemplo:
-% \footweb{owasp2024}
+% La guía puede consultarse en OWASP\footweb{owasp_top10_2025}.
 \newcommand{\footweb}[1]{%
-  \footnote{%
-    \fullcite{#1}%
-  }%
+  \bracketfootnote{\fullcite{#1}}%
 }
 
+
 % \footwebcite{texto citado}{clave_biblatex}{fragmento}
-% Sirve para mostrar un texto entre comillas en el cuerpo del documento
-% y añadir en nota al pie la fuente web más el fragmento relevante.
+% Muestra un texto citado entre comillas y añade en nota al pie
+% la fuente web junto con el fragmento relevante.
 %
 % Ejemplo:
 % \footwebcite{La autenticación multifactor reduce riesgos}{cisa2024}{MFA helps prevent unauthorized access}
 \newcommand{\footwebcite}[3]{%
-  ``#1''\footnote{%
-    \fullcite{#2}. Fragmento: #3%
-  }%
+  ``#1''\bracketfootnote{\fullcite{#2}. Fragmento: #3}%
 }
 
+
 % \footcitedefinition{termino_o_definicion}{clave_biblatex}{pagina}
-% Sirve para escribir un término o definición y añadir la fuente en nota
-% al pie con la página correspondiente.
+% Inserta una definición o término en el texto y añade la referencia
+% completa en nota al pie indicando la página concreta.
 %
 % Ejemplo:
 % \footcitedefinition{Confidencialidad}{iso27001}{8}
 \newcommand{\footcitedefinition}[3]{%
-  #1\footnote{%
-    \fullcite{#2}, p.~#3%
-  }%
+  #1\bracketfootnote{\fullcite{#2}, p.~#3}%
 }
 
+
+% ============================================================
+% Versiones sin nota al pie
+% ============================================================
+
+% \numcite{clave_biblatex}
+% Inserta únicamente la cita bibliográfica numérica [n] en el texto,
+% sin crear nota al pie.
+%
+% Ejemplo:
+% La norma ISO/IEC 27001 establece controles de seguridad \numcite{iso27001}.
+\newcommand{\numcite}[1]{%
+  \cite{#1}%
+}
+
+
+% \numcitepage{clave_biblatex}{pagina}
+% Inserta únicamente la cita numérica con página, sin nota al pie.
+%
+% Ejemplo:
+% La gestión del riesgo debe ser continua \numcitepage{iso27001}{12}.
+\newcommand{\numcitepage}[2]{%
+  \cite[p.~#2]{#1}%
+}
+
+
+% \numweb{clave_biblatex}
+% Alias semántico de \numcite para fuentes web.
+%
+% Ejemplo:
+% OWASP Top 10 clasifica los riesgos principales \numweb{owasp_top10_2025}.
+\newcommand{\numweb}[1]{%
+  \cite{#1}%
+}
 % ---------------------------------------------------------
 % 2. CABECERAS
 % ---------------------------------------------------------

@@ -146,20 +146,35 @@ La presencia de una infraestructura Active Directory introduce una segunda super
 
 Las amenazas consideradas durante el diseño del laboratorio incluyen:
 
-\begin{itemize}
-\item Explotación de vulnerabilidades web.
-\item Robo de credenciales.
-\item Escalada local de privilegios.
-\item Movimiento lateral entre sistemas.
-\item Persistencia en sistemas comprometidos.
-\item Acceso no autorizado a información sensible.
-\item Abuso de configuraciones inseguras.
+% \begin{itemize}
+%     \item \textbf{Explotación de vulnerabilidades web:} relacionada principalmente con OWASP A05 \textit{Injection}, OWASP A01 \textit{Broken Access Control} y técnicas MITRE de acceso inicial.
+
+%     \item \textbf{Robo y reutilización de credenciales:} asociado a OWASP A07 \textit{Authentication Failures} y a la táctica MITRE \textit{Credential Access}.
+
+%     \item \textbf{Escalada local de privilegios:} vinculada a configuraciones inseguras del sistema y a la táctica MITRE \textit{Privilege Escalation}.
+
+%     \item \textbf{Movimiento lateral entre sistemas:} relacionado con la táctica MITRE \textit{Lateral Movement}, especialmente tras obtener credenciales válidas en la red interna.
+
+%     \item \textbf{Persistencia en sistemas comprometidos:} asociada a la táctica MITRE \textit{Persistence}, permitiendo mantener acceso tras el compromiso inicial.
+
+%     \item \textbf{Acceso no autorizado a información sensible:} vinculado a OWASP A01 \textit{Broken Access Control} y OWASP A04 \textit{Cryptographic Failures}.
+
+%     \item \textbf{Abuso de configuraciones inseguras:} relacionado con OWASP A02 \textit{Security Misconfiguration} y con técnicas MITRE de descubrimiento, escalada y movimiento lateral.
+% \end{itemize}
+
+\begin{itemize} 
+    \item Explotación de vulnerabilidades web. 
+    \item Robo de credenciales.
+    \item Escalada local de privilegios. 
+    \item Movimiento lateral entre sistemas. 
+    \item Persistencia en sistemas comprometidos. 
+    \item Acceso no autorizado a información sensible. 
+    \item Abuso de configuraciones inseguras. 
 \end{itemize}
-
 \vspace{0.5cm}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.2}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \captionazul{Activos y vectores de ataque considerados}
 
@@ -202,30 +217,30 @@ La Figura~\ref{fig:flujo_ataque_laboratorio} representa una posible cadena de at
             rounded corners,
             draw=blueColor,
             fill=blue!8,
-            text width=6cm,
+            text width=7cm,
             align=center,
-            minimum height=0.9cm,
-            font=\small
+            minimum height=1.1cm,
+            font=\normalsize
         },
         final/.style={
             rectangle,
             rounded corners,
             draw=green!70,
             fill=green!8,
-            text width=6cm,
+            text width=7cm,
             align=center,
-            minimum height=0.9cm,
-            font=\small
+            minimum height=1.1cm,
+            font=\normalsize
         },
         sistema/.style={
             rectangle,
             rounded corners,
             draw=red!70,
             fill=red!8,
-            text width=6cm,
+            text width=7cm,
             align=center,
-            minimum height=0.9cm,
-            font=\small
+            minimum height=1.1cm,
+            font=\normalsize
         },
         flecha/.style={
             -{Latex[length=2.5mm]},
@@ -255,6 +270,8 @@ La Figura~\ref{fig:flujo_ataque_laboratorio} representa una posible cadena de at
     \captionazul{Flujo general de ataque planteado en el laboratorio.}
     \label{fig:flujo_ataque_laboratorio}
 \end{figure}
+
+
 
 % ----------------------------------------------------------
 % IMAGEN RECOMENDADA:
