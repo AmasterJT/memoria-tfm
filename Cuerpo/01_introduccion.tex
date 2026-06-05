@@ -7,13 +7,72 @@
 
 % ---------------------------------------------------
 
-Todos los capítulos, secciones y apartados de esta plantilla son orientativos. Podrán personalizarse en función del TFM, bajo la supervisión del tutor. 
+La ciberseguridad se ha convertido en uno de los principales retos tecnológicos para las organizaciones actuales. La digitalización de procesos, la exposición de servicios web y la interconexión entre sistemas internos han incrementado la superficie de ataque disponible para posibles actores maliciosos. En este contexto, resulta fundamental comprender cómo se producen las intrusiones, qué debilidades suelen ser explotadas y cómo se encadenan distintas técnicas ofensivas hasta comprometer un entorno corporativo.
 
-\subsection{Contexto del TFM}
-En este primer capítulo se debe exponer el contexto (temática) del proyecto, justificando por qué surge, en qué consiste, así como la relevancia técnica del mismo.
+La formación práctica en ciberseguridad requiere entornos controlados donde sea posible analizar vulnerabilidades, ejecutar ataques y estudiar su impacto sin afectar a sistemas reales. Aunque existen laboratorios y máquinas vulnerables orientadas al aprendizaje, muchos de estos entornos se centran en ejercicios aislados o en una única máquina objetivo. Esto limita la posibilidad de representar una cadena de ataque completa que incluya acceso inicial, explotación, escalada de privilegios, pivoting, enumeración interna y movimiento lateral.
 
-\subsection{Objetivos}
-Se enumerarán los objetivos principales del proyecto. Preferiblemente, identificando claramente el objetivo principal, así como los diferentes subobjetivos planteados.
+El presente Trabajo Fin de Máster aborda el diseño e implementación de un laboratorio Red Team reproducible, orientado a la simulación de ataques en un entorno corporativo controlado. Para ello, se ha diseñado una infraestructura compuesta por un servidor web vulnerable, una red interna segmentada y sistemas Windows integrados en un dominio Active Directory. La aplicación web simula un portal corporativo con funcionalidades habituales en una organización, como gestión de usuarios, empleados, clientes o tickets, con el objetivo de disponer de un escenario realista sobre el que introducir y explotar vulnerabilidades.
 
-\subsection{Organización del trabajo}
-Se indicará cómo se estructura el documento (contenido de cada capítulo).
+Las vulnerabilidades incorporadas en el laboratorio toman como referencia las categorías recogidas en OWASP Top 10, al tratarse de uno de los marcos más utilizados para clasificar riesgos de seguridad en aplicaciones web. Además, los escenarios ofensivos se relacionan con técnicas contempladas en MITRE ATT\&CK, lo que permite conectar las acciones realizadas en el laboratorio con tácticas y procedimientos empleados en ataques reales.
+
+El resultado esperado es un entorno práctico, modular y reproducible que permita estudiar el ciclo completo de una intrusión en un escenario controlado. Este laboratorio no pretende representar una organización concreta, sino proporcionar una base técnica suficientemente realista para practicar y documentar técnicas ofensivas aplicables a entornos empresariales.
+
+
+
+
+
+
+\subsection{Contexto y motivación}
+
+La creciente digitalización de los entornos corporativos ha incrementado la exposición de aplicaciones web, servicios internos y sistemas interconectados. Este contexto ha provocado que la ciberseguridad sea un aspecto clave para comprender cómo se producen los ataques, qué vulnerabilidades suelen ser explotadas y cómo un acceso inicial puede derivar en el compromiso de otros sistemas internos.
+
+Muchos laboratorios de aprendizaje se centran en máquinas aisladas o vulnerabilidades concretas, lo que limita la representación de una intrusión completa. Por ello, este trabajo plantea el diseño de un laboratorio Red Team reproducible que permita practicar una cadena de ataque más realista, incluyendo explotación web, escalada de privilegios, pivoting, enumeración interna y movimiento lateral.
+
+La motivación principal del proyecto es disponer de un entorno controlado y documentado que facilite el aprendizaje práctico de técnicas ofensivas sin afectar a sistemas reales. Para ello, el laboratorio combina un servidor web vulnerable, una red interna segmentada y una infraestructura Windows basada en Active Directory.
+
+\subsection{Objetivos del trabajo}
+
+El presente Trabajo Fin de Máster tiene como finalidad diseñar e implementar un laboratorio de ciberseguridad orientado a la simulación de escenarios de ataque en entornos corporativos. Para ello, se ha desarrollado una infraestructura reproducible que integra diferentes sistemas y servicios con el objetivo de representar de forma realista las distintas fases de una intrusión, desde el acceso inicial hasta el compromiso de recursos internos.
+
+Además del desarrollo técnico del laboratorio, el proyecto busca proporcionar una plataforma práctica que permita analizar vulnerabilidades, validar técnicas ofensivas y facilitar el aprendizaje de conceptos relacionados con la seguridad de aplicaciones web, la segmentación de redes y los entornos basados en Active Directory.
+
+\subsubsection{Objetivo general}
+
+Diseñar e implementar un laboratorio Red Team reproducible que permita simular y documentar escenarios de ataque realistas sobre una infraestructura corporativa controlada, integrando vulnerabilidades web, sistemas Windows y técnicas de post-explotación.
+
+\subsubsection{Objetivos específicos}
+
+Para alcanzar el objetivo general se han definido los siguientes objetivos específicos:
+
+\begin{itemize}
+\item Diseñar una arquitectura de laboratorio segmentada que simule un entorno corporativo realista.
+
+\item Implementar un servidor web vulnerable basado en tecnologías ampliamente utilizadas en entornos empresariales.
+
+\item Incorporar vulnerabilidades representativas del estándar OWASP Top 10 para su posterior explotación y análisis.
+
+\item Desplegar una infraestructura Windows basada en Active Directory que permita simular escenarios de red internos.
+
+\item Implementar técnicas de pivoting y movimiento lateral entre los distintos sistemas del laboratorio.
+
+\item Automatizar el despliegue y configuración del entorno para facilitar su reproducibilidad.
+
+\item Documentar el proceso de explotación y validación de los diferentes escenarios de ataque implementados.
+```
+
+\end{itemize}
+
+\subsection{Alcance y limitaciones}
+
+El alcance de este trabajo comprende el diseño, implementación y validación de un laboratorio de ciberseguridad orientado a la simulación de ataques en un entorno controlado. El laboratorio incluye una aplicación web vulnerable, una infraestructura Active Directory básica y los mecanismos necesarios para reproducir técnicas de explotación, escalada de privilegios y movimiento lateral.
+
+No obstante, el proyecto presenta ciertas limitaciones. El entorno ha sido desarrollado con fines exclusivamente académicos y formativos, por lo que las vulnerabilidades presentes han sido introducidas de forma intencionada. Asimismo, la infraestructura implementada representa una simplificación de los entornos corporativos reales y no pretende reproducir la totalidad de servicios, políticas de seguridad o mecanismos de monitorización que pueden encontrarse en organizaciones de mayor complejidad.
+
+\subsection{Organización de la memoria}
+
+La memoria se estructura en seis capítulos principales. En primer lugar, se presenta el contexto del trabajo, los objetivos perseguidos y el alcance del proyecto. Posteriormente, se describe la metodología empleada, la planificación realizada y los recursos utilizados durante el desarrollo.
+
+A continuación, se analizan los requisitos y las necesidades que han motivado el diseño del laboratorio. Seguidamente, se detalla la arquitectura implementada, los componentes que forman parte de la infraestructura y las decisiones de diseño adoptadas.
+
+Los capítulos posteriores se centran en la validación del entorno mediante distintos escenarios de ataque, mostrando las técnicas empleadas y los resultados obtenidos. Finalmente, se presentan las conclusiones del trabajo y las posibles líneas de evolución futura del proyecto. La memoria se complementa con diversos anexos que incluyen documentación técnica, manuales de despliegue y material de apoyo.
+

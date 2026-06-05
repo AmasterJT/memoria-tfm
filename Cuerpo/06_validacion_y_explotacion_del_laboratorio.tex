@@ -1,0 +1,194 @@
+\vspace*{-1cm}
+
+\nombreCapituloCabecera{RH}{Validación y explotación del laboratorio}
+
+\section{Validación y explotación del laboratorio}
+\label{sec:validacion_y_explotacion_del_laboratorio}
+
+El objetivo de esta fase consiste en validar el correcto funcionamiento de la infraestructura desarrollada y comprobar que los distintos escenarios de ataque definidos durante el diseño del laboratorio pueden ejecutarse de forma satisfactoria.
+
+Para ello se llevaron a cabo diferentes ejercicios de explotación desde una máquina atacante externa basada en Kali Linux. Las pruebas realizadas permitieron verificar tanto las vulnerabilidades implementadas en la aplicación web como los mecanismos de escalada de privilegios, pivoting y movimiento lateral presentes en la infraestructura.
+
+La validación se realizó siguiendo una secuencia progresiva que reproduce las fases habituales de una intrusión real, comenzando por el reconocimiento inicial del entorno y finalizando con el compromiso de la infraestructura Active Directory.
+
+% ---------------------------------------------------
+
+\subsection{Metodología de pruebas}
+
+Las pruebas de validación se realizaron siguiendo una metodología inspirada en procesos habituales de pentesting y ejercicios Red Team. El objetivo no consistía únicamente en verificar vulnerabilidades aisladas, sino demostrar que estas podían encadenarse para comprometer progresivamente distintos sistemas de la infraestructura.
+
+Cada escenario fue ejecutado partiendo de una situación inicial donde el atacante únicamente disponía de conectividad hacia los servicios expuestos por el laboratorio. A partir de este punto se desarrollaron distintas actividades de reconocimiento, explotación y post-explotación hasta alcanzar los objetivos definidos.
+
+Las pruebas se estructuraron en las siguientes fases:
+
+\begin{enumerate}
+    \item Reconocimiento y enumeración de servicios.
+    \item Identificación de vulnerabilidades.
+    \item Obtención de acceso inicial.
+    \item Escalada de privilegios.
+    \item Pivoting hacia redes internas.
+    \item Enumeración de Active Directory.
+    \item Movimiento lateral.
+    \item Compromiso de sistemas corporativos.
+\end{enumerate}
+
+Durante todas las pruebas se registraron evidencias mediante capturas de pantalla, registros de comandos y resultados obtenidos con distintas herramientas ofensivas.
+
+% ------------------------------------------------------------------
+
+\subsection{Escenarios de ataque realizados}
+
+Los escenarios de ataque implementados fueron diseñados para validar las distintas superficies de ataque incorporadas al laboratorio y demostrar la viabilidad de una cadena de compromiso completa.
+
+La secuencia seguida reproduce una intrusión progresiva sobre una infraestructura corporativa simulada, donde cada fase proporciona acceso a nuevos recursos y permite avanzar hacia sistemas de mayor criticidad.
+
+% ------------------------------------------------------------------
+
+\subsubsection{Reconocimiento inicial}
+
+La primera fase del ejercicio consistió en la identificación de servicios expuestos y la recopilación de información sobre la infraestructura objetivo.
+
+Para ello se emplearon herramientas de enumeración de red como Nmap con el objetivo de identificar hosts accesibles, puertos abiertos y servicios disponibles.
+
+La información obtenida permitió identificar el servidor Ubuntu como principal superficie de ataque expuesta al exterior, así como determinar los servicios web disponibles para su posterior análisis.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Captura de Nmap mostrando los puertos detectados.
+% --------------------------------------------------------
+
+El reconocimiento inicial permitió construir una visión general de la infraestructura y definir los vectores de ataque potencialmente explotables.
+
+% ------------------------------------------------------------------
+
+\subsubsection{Explotación web}
+
+Una vez identificada la aplicación vulnerable, se procedió al análisis de sus funcionalidades y mecanismos de autenticación.
+
+Durante esta fase se identificaron distintas vulnerabilidades pertenecientes a categorías recogidas por OWASP Top 10. Estas debilidades permitieron obtener acceso a información sensible y ejecutar acciones no autorizadas dentro de la aplicación.
+
+Las pruebas realizadas confirmaron que las vulnerabilidades implementadas pueden ser explotadas de forma controlada y constituyen un punto de entrada válido al entorno.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Captura de Burp Suite.
+%
+% IMAGEN RECOMENDADA:
+% Captura de explotación SQLi o vulnerabilidad principal.
+% --------------------------------------------------------
+
+% ------------------------------------------------------------------
+
+\subsubsection{Obtención de reverse shell}
+
+Tras explotar la aplicación web se consiguió ejecutar comandos sobre el servidor vulnerable y establecer una conexión interactiva con la máquina Ubuntu.
+
+La obtención de una reverse shell permitió acceder al sistema operativo subyacente y continuar con actividades de post-explotación fuera del contexto de la aplicación web.
+
+Esta fase demuestra cómo una vulnerabilidad aparentemente limitada puede derivar en el compromiso del sistema que aloja la aplicación.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Reverse shell recibida en Netcat.
+% --------------------------------------------------------
+
+% ------------------------------------------------------------------
+
+\subsubsection{Escalada de privilegios Linux}
+
+Una vez obtenido acceso al servidor Ubuntu se realizaron tareas de enumeración local orientadas a identificar configuraciones inseguras y mecanismos de escalada de privilegios.
+
+Durante el análisis se localizaron diferentes elementos vulnerables introducidos de forma intencionada en el laboratorio, permitiendo incrementar el nivel de privilegios hasta obtener control administrativo completo del sistema.
+
+La correcta explotación de estos mecanismos validó los escenarios de post-explotación previstos durante el diseño del laboratorio.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Ejecución de LinPEAS.
+%
+% IMAGEN RECOMENDADA:
+% Obtención de root.
+% --------------------------------------------------------
+
+% ------------------------------------------------------------------
+
+\subsubsection{Pivoting}
+
+Con el servidor Ubuntu completamente comprometido se utilizó este sistema como punto intermedio para acceder a segmentos de red inicialmente inaccesibles.
+
+Esta técnica permitió alcanzar recursos internos pertenecientes a la infraestructura corporativa simulada y validar la segmentación de red definida durante el diseño del laboratorio.
+
+El pivoting constituye una de las fases más relevantes del escenario, ya que reproduce situaciones habituales observadas en intrusiones reales.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Diagrama o captura mostrando el túnel de pivoting.
+% --------------------------------------------------------
+
+% ------------------------------------------------------------------
+
+\subsubsection{Enumeración Active Directory}
+
+Una vez alcanzada la red interna se llevaron a cabo actividades de reconocimiento orientadas a identificar usuarios, grupos, equipos y servicios pertenecientes al dominio.
+
+Durante esta fase se utilizaron herramientas específicas para entornos Active Directory que permitieron recopilar información sobre la estructura interna de la organización simulada.
+
+Los resultados obtenidos facilitaron la identificación de posibles objetivos para fases posteriores de movimiento lateral y escalada de privilegios.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% BloodHound.
+%
+% IMAGEN RECOMENDADA:
+% Enumeración SMB o LDAP.
+% --------------------------------------------------------
+
+% ------------------------------------------------------------------
+
+\subsubsection{Movimiento lateral}
+
+A partir de las credenciales obtenidas durante las fases anteriores se realizaron intentos de acceso a distintos sistemas internos.
+
+Las pruebas permitieron verificar que un atacante con acceso parcial a la infraestructura puede desplazarse entre diferentes equipos aprovechando relaciones de confianza existentes dentro del dominio.
+
+Esta fase confirmó la correcta integración entre los distintos componentes Windows presentes en el laboratorio.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Evil-WinRM.
+%
+% IMAGEN RECOMENDADA:
+% Acceso a DEV01.
+% --------------------------------------------------------
+
+% ------------------------------------------------------------------
+
+\subsubsection{Compromiso del dominio}
+
+La fase final del ejercicio consistió en comprometer los recursos más sensibles de la infraestructura corporativa simulada.
+
+Mediante la combinación de vulnerabilidades, credenciales obtenidas y técnicas de post-explotación fue posible alcanzar un nivel de acceso equivalente al de un administrador del dominio.
+
+Este resultado valida el escenario completo planteado durante el diseño del laboratorio y demuestra cómo una cadena de vulnerabilidades aparentemente independientes puede desembocar en el compromiso total de una organización.
+
+% --------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Acceso a DC01.
+%
+% IMAGEN RECOMENDADA:
+% Evidencia de privilegios elevados sobre el dominio.
+% --------------------------------------------------------
+
+% ------------------------------------------------------------------
+
+\subsection{Validación de reproducibilidad}
+
+Uno de los objetivos principales del proyecto consistía en garantizar que el laboratorio pudiera desplegarse de forma consistente en distintos equipos anfitriones.
+
+Para validar este requisito se realizaron varias pruebas de instalación utilizando los procedimientos documentados y los scripts de automatización desarrollados durante el proyecto.
+
+Los resultados obtenidos demostraron que la infraestructura puede desplegarse de forma reproducible manteniendo la misma configuración de red, los mismos servicios y las mismas vulnerabilidades independientemente del entorno utilizado.
+
+Asimismo, las pruebas permitieron verificar que los distintos escenarios de ataque pueden ejecutarse de forma consistente tras cada despliegue, garantizando la utilidad del laboratorio como plataforma docente y de experimentación.
+
+En consecuencia, puede afirmarse que el laboratorio cumple los requisitos de reproducibilidad definidos durante las fases iniciales del proyecto y constituye una base adecuada para futuras ampliaciones y nuevos escenarios de ataque.

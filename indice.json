@@ -3,69 +3,131 @@
     {
       "titulo": "Introducción",
       "secciones": [
-        "Contexto del TFM",
-        "Objetivos",
-        "Organización del trabajo"
+        "Contexto y motivación",
+        {
+          "titulo": "Objetivos del trabajo",
+          "subsecciones": ["Objetivo general", "Objetivos específicos"]
+        },
+        "Alcance y limitaciones",
+        "Organización de la memoria"
       ]
     },
     {
-      "titulo": "Gestión del proyecto",
+      "titulo": "Fundamentos teóricos",
       "secciones": [
-        "Modelo de ciclo de vida",
-        "Planificación",
-        "Presupuesto (si procede)"
+        "OWASP Top 10",
+        "MITRE ATT&CK",
+        "SQL Injection",
+        "Cross-Site Scripting (XSS)",
+        "Vulnerabilidades de carga de archivos (File Upload)",
+        "Exposición de credenciales",
+        {
+          "titulo": "Escalada de privilegios en Linux",
+          "subsecciones": ["PATH Hijacking", "Configuraciones inseguras"]
+        },
+        "Pivoting y segmentación de red",
+        {
+          "titulo": "Active Directory",
+          "subsecciones": [
+            "Componentes principales",
+            "Usuarios, grupos y permisos"
+          ]
+        },
+        {
+          "titulo": "Protocolos y servicios utilizados",
+          "subsecciones": ["SMB", "WinRM"]
+        },
+        "Movimiento lateral en entornos Windows"
       ]
     },
     {
-      "titulo": "Análisis",
+      "titulo": "Gestión y metodología del proyecto",
       "secciones": [
-        "Especificación de requisitos",
-        "Análisis de los Casos de Uso",
-        "Análisis de seguridad",
-        "Análisis desde la perspectiva del RGPD (si procede)"
+        "Metodología de desarrollo",
+        "Planificación del proyecto",
+        {
+          "titulo": "Recursos utilizados",
+          "subsecciones": ["Hardware", "Software"]
+        },
+        "Coste del proyecto (opcional)"
       ]
     },
     {
-      "titulo": "Diseño e implementación",
+      "titulo": "Análisis del entorno y requisitos",
+      "secciones": [
+        "Requisitos funcionales",
+        "Requisitos no funcionales",
+        "Análisis de amenazas y superficie de ataque",
+        "Justificación del uso de OWASP y MITRE ATT&CK"
+      ]
+    },
+    {
+      "titulo": "Diseño del laboratorio",
       "secciones": [
         {
-          "titulo": "Arquitectura del sistema",
+          "titulo": "Arquitectura general",
           "subsecciones": [
             "Arquitectura física",
             "Arquitectura lógica",
-            "Diagrama de infraestructuras de nivel 2 (si procede)",
-            "Diagrama de infraestructuras de nivel 3 (si procede)"
+            "Segmentación de red",
+            "Diagrama completo de infraestructura"
           ]
         },
         {
-          "titulo": "Diseño de datos",
+          "titulo": "Diseño del servidor vulnerable",
           "subsecciones": [
-            "Migración y carga inicial de datos (si procede)"
+            "Stack tecnológico",
+            "Portal PYME vulnerable",
+            "Vulnerabilidades implementadas"
           ]
         },
-        "Diseño de la interfaz de usuario",
-        "Diagrama de clases",
-        "Entorno de construcción",
-        "Referencia al repositorio de software"
+        {
+          "titulo": "Diseño de la infraestructura Active Directory",
+          "subsecciones": [
+            "DC01",
+            "DEV01",
+            "Usuarios y políticas",
+            "Servicios internos"
+          ]
+        },
+        "Diseño del escenario ofensivo",
+        {
+          "titulo": "Automatización y despliegue",
+          "subsecciones": ["Docker", "Reproducibilidad del laboratorio"]
+        },
+        "Repositorio y estructura del proyecto"
       ]
     },
     {
-      "titulo": "Validación del sistema",
+      "titulo": "Validación y explotación del laboratorio",
       "secciones": [
-        "Plan de pruebas",
-        "Evaluación del sistema (si procede)"
+        "Metodología de pruebas",
+        {
+          "titulo": "Escenarios de ataque realizados",
+          "subsecciones": [
+            "Reconocimiento inicial",
+            "Explotación web",
+            "Obtención de reverse shell",
+            "Escalada de privilegios Linux",
+            "Pivoting",
+            "Enumeración Active Directory",
+            "Movimiento lateral",
+            "Compromiso del dominio"
+          ]
+        },
+        "Validación de reproducibilidad"
       ]
     },
     {
-      "titulo": "Implementación",
-      "secciones": [
-        "Conclusiones",
-        "Líneas futuras"
-      ]
+      "titulo": "Conclusiones y trabajo futuro",
+      "secciones": ["Conclusiones", "Líneas futuras"]
     }
   ],
-  "Anexos": [
-    "Manuales",
-    "Titulo anexo ii"
+  "anexos": [
+    "Manual de despliegue",
+    "Manual de explotación",
+    "Configuración de red",
+    "Scripts y automatizaciones",
+    "Evidencias adicionales"
   ]
 }

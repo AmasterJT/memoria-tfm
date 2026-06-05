@@ -1,0 +1,314 @@
+\vspace*{-1cm}
+
+\nombreCapituloCabecera{RH}{Análisis del entorno y requisitos}
+
+\section{Análisis del entorno y requisitos}
+\label{sec:analisis_del_entorno_y_requisitos}
+
+El diseño de un laboratorio de ciberseguridad requiere definir previamente los requisitos que debe satisfacer el entorno, así como los escenarios de amenaza que se desean reproducir. Este análisis permite establecer una base sólida para el desarrollo de la infraestructura vulnerable y garantizar que los escenarios de ataque implementados resulten representativos de situaciones reales.
+
+El laboratorio desarrollado en este proyecto está orientado a la simulación de una pequeña organización con una infraestructura híbrida compuesta por servicios Linux y Windows. El objetivo principal consiste en proporcionar un entorno controlado donde sea posible reproducir técnicas de reconocimiento, explotación, escalada de privilegios y movimiento lateral utilizadas habitualmente durante ejercicios de Red Team y pruebas de penetración.
+
+% ==========================================================
+\subsection{Requisitos funcionales}
+% ==========================================================
+
+Los requisitos funcionales describen las capacidades que debe proporcionar el laboratorio para cumplir los objetivos definidos durante el desarrollo del proyecto.
+
+\begin{enumerate}
+
+\item \textbf{Simulación de un entorno corporativo realista.}
+
+El laboratorio debe reproducir una infraestructura similar a la que podría encontrarse en una pequeña o mediana empresa, incluyendo servicios web, sistemas Windows y mecanismos de autenticación centralizada.
+
+\item \textbf{Despliegue reproducible.}
+
+Todos los componentes del laboratorio deben poder instalarse y configurarse mediante procedimientos documentados y automatizados que permitan recrear el entorno en distintos equipos anfitriones.
+
+\item \textbf{Ejecución de escenarios de ataque completos.}
+
+El entorno debe permitir la realización de cadenas de ataque que incluyan reconocimiento, explotación, escalada de privilegios, persistencia y movimiento lateral.
+
+\item \textbf{Incorporación de vulnerabilidades reales.}
+
+La aplicación web vulnerable debe contener fallos representativos de las categorías definidas por OWASP Top 10, permitiendo su explotación de forma controlada.
+
+\item \textbf{Integración con Active Directory.}
+
+El laboratorio debe incorporar una infraestructura Windows basada en Active Directory que permita realizar ejercicios de enumeración, autenticación y movimiento lateral.
+
+\item \textbf{Aislamiento del entorno.}
+
+La infraestructura debe ejecutarse en una red virtual aislada que impida afectar a sistemas externos durante las pruebas.
+
+\item \textbf{Documentación de los escenarios de explotación.}
+
+Cada vulnerabilidad implementada debe estar acompañada de una guía de explotación y mitigación que facilite su utilización con fines docentes.
+
+\end{enumerate}
+
+% ----------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Diagrama general de alto nivel del laboratorio mostrando
+% host, servidor web, DC01 y DEV01.
+% ----------------------------------------------------------
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Imagenes/Diagrama-general-alto-nivel.png}
+
+    \vspace{0.2cm}
+    \captionazul{Diagrama general de alto nivel del laboratorio, mostrando los principales componentes y su interconexión.}
+    \label{fig:diagrama_general_alto_nivel}
+\end{figure}
+
+
+
+% ==========================================================
+\subsection{Requisitos no funcionales}
+% ==========================================================
+
+Además de los requisitos funcionales, el laboratorio debe satisfacer una serie de requisitos no funcionales relacionados con la calidad, mantenibilidad y usabilidad de la solución.
+
+\begin{enumerate}
+
+\item \textbf{Reproducibilidad.}
+
+El despliegue debe producir resultados consistentes independientemente del equipo anfitrión utilizado.
+
+\item \textbf{Escalabilidad.}
+
+La arquitectura debe permitir incorporar nuevas vulnerabilidades y escenarios de ataque sin necesidad de rediseñar la infraestructura existente.
+
+\item \textbf{Mantenibilidad.}
+
+Los distintos componentes deben encontrarse correctamente documentados para facilitar futuras modificaciones y ampliaciones.
+
+\item \textbf{Portabilidad.}
+
+El laboratorio debe poder ejecutarse sobre distintas plataformas de virtualización compatibles con VMware Workstation.
+
+\item \textbf{Seguridad operacional.}
+
+La infraestructura vulnerable debe permanecer aislada del entorno de producción y de redes externas.
+
+\item \textbf{Consumo razonable de recursos.}
+
+Los requisitos hardware deben mantenerse dentro de unos márgenes asumibles para equipos domésticos o académicos.
+
+\end{enumerate}
+
+\vspace{0.5cm}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[h]
+    \centering
+    \captionazul{Resumen de requisitos no funcionales}
+
+    \setlength{\arrayrulewidth}{0.05mm}
+
+    \begin{tabular}{|C{4cm}|C{9cm}|}
+        \hline
+        \rowcolor{blue!10}
+        \textbf{Categoría} & \textbf{Objetivo} \\
+        \hline
+        Reproducibilidad & Permitir recrear el entorno de forma consistente en diferentes equipos anfitriones. \\
+        \hline
+        Escalabilidad & Facilitar la incorporación de nuevos escenarios de ataque y vulnerabilidades. \\
+        \hline
+        Mantenibilidad & Simplificar futuras modificaciones y ampliaciones del laboratorio. \\
+        \hline
+        Portabilidad & Permitir la ejecución en diferentes entornos de virtualización. \\
+        \hline
+        Seguridad & Mantener el aislamiento respecto a redes externas. \\
+        \hline
+        Rendimiento & Funcionar correctamente con recursos hardware moderados. \\
+        \hline
+    \end{tabular}
+
+    \renewcommand{\arraystretch}{1}
+    \label{tab:requisitos_no_funcionales}
+\end{table}
+\vspace{0.5cm}
+
+% ==========================================================
+\subsection{Análisis de amenazas y superficie de ataque}
+% ==========================================================
+
+El laboratorio se ha diseñado para representar una organización expuesta a amenazas habituales presentes en entornos corporativos actuales. Para ello se han identificado los principales activos, vectores de entrada y superficies de ataque susceptibles de ser comprometidas por un atacante externo.
+
+La superficie de ataque principal se encuentra representada por la aplicación web vulnerable publicada en el servidor Ubuntu. Este sistema constituye el punto inicial de acceso al entorno y concentra la mayor parte de las vulnerabilidades implementadas.
+
+Una vez comprometido el servidor web, el atacante puede acceder a información sensible, credenciales almacenadas incorrectamente o mecanismos inseguros de configuración que permiten ampliar el alcance del ataque.
+
+La presencia de una infraestructura Active Directory introduce una segunda superficie de ataque relacionada con la autenticación, la gestión de privilegios y el movimiento lateral dentro de la red interna.
+
+Las amenazas consideradas durante el diseño del laboratorio incluyen:
+
+\begin{itemize}
+\item Explotación de vulnerabilidades web.
+\item Robo de credenciales.
+\item Escalada local de privilegios.
+\item Movimiento lateral entre sistemas.
+\item Persistencia en sistemas comprometidos.
+\item Acceso no autorizado a información sensible.
+\item Abuso de configuraciones inseguras.
+\end{itemize}
+
+\vspace{0.5cm}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[h]
+    \centering
+    \captionazul{Activos y vectores de ataque considerados}
+
+    \setlength{\arrayrulewidth}{0.05mm}
+
+    \begin{tabular}{|C{4cm}|C{5cm}|C{5cm}|}
+        \hline
+        \rowcolor{blue!10}
+        \textbf{Activo} & \textbf{Amenaza principal} & \textbf{Impacto} \\
+        \hline
+        Aplicación web & Explotación de vulnerabilidades OWASP & Acceso inicial al entorno \\
+        \hline
+        Servidor Ubuntu & Escalada de privilegios & Compromiso total del sistema \\
+        \hline
+        Estación DEV01 & Movimiento lateral & Acceso a recursos internos \\
+        \hline
+        Active Directory & Robo de credenciales & Control del dominio \\
+        \hline
+        Base de datos & Acceso no autorizado & Exposición de información sensible \\
+        \hline
+    \end{tabular}
+
+    \renewcommand{\arraystretch}{1}
+    \label{tab:superficie_ataque}
+\end{table}
+\vspace{0.5cm}
+
+
+La Tabla~\ref{tab:superficie_ataque} resume los principales activos presentes en el laboratorio y las amenazas asociadas a cada uno de ellos. No obstante, estas amenazas no deben entenderse como eventos aislados, sino como etapas que pueden encadenarse para construir una intrusión completa.
+
+La Figura~\ref{fig:flujo_ataque_laboratorio} representa una posible cadena de ataque sobre la infraestructura diseñada. El escenario parte de la explotación de vulnerabilidades presentes en la aplicación web, continúa con la obtención de acceso al servidor Ubuntu y culmina con el compromiso de los sistemas internos y de la infraestructura Active Directory. Este flujo permite reproducir de forma controlada las distintas fases que suelen observarse en ejercicios de Red Team y pruebas de penetración sobre entornos corporativos.
+
+\begin{figure}[H]
+    \centering
+
+   \begin{tikzpicture}[
+        node distance=0.6cm,
+        fase/.style={
+            rectangle,
+            rounded corners,
+            draw=blueColor,
+            fill=blue!8,
+            text width=6cm,
+            align=center,
+            minimum height=0.9cm,
+            font=\small
+        },
+        final/.style={
+            rectangle,
+            rounded corners,
+            draw=green!70,
+            fill=green!8,
+            text width=6cm,
+            align=center,
+            minimum height=0.9cm,
+            font=\small
+        },
+        sistema/.style={
+            rectangle,
+            rounded corners,
+            draw=red!70,
+            fill=red!8,
+            text width=6cm,
+            align=center,
+            minimum height=0.9cm,
+            font=\small
+        },
+        flecha/.style={
+            -{Latex[length=2.5mm]},
+            thick
+        }
+    ]
+
+        \node[fase] (recon) {1. Reconocimiento\\Enumeración de servicios expuestos};
+        \node[fase, below=of recon] (web) {2. Explotación web\\Portal PYME vulnerable};
+        \node[sistema, below=of web] (ubuntu) {3. Acceso inicial\\Servidor Ubuntu};
+        \node[fase, below=of ubuntu] (priv) {4. Escalada de privilegios\\Compromiso del servidor};
+        \node[fase, below=of priv] (creds) {5. Obtención de credenciales\\Usuarios y servicios internos};
+        \node[sistema, below=of creds] (lateral) {6. Movimiento lateral\\DEV01};
+        \node[sistema, below=of lateral] (ad) {7. Enumeración interna\\Active Directory / DC01};
+        \node[final, below=of ad] (dominio) {8. Compromiso final\\Infraestructura corporativa};
+
+        \draw[flecha] (recon) -- (web);
+        \draw[flecha] (web) -- (ubuntu);
+        \draw[flecha] (ubuntu) -- (priv);
+        \draw[flecha] (priv) -- (creds);
+        \draw[flecha] (creds) -- (lateral);
+        \draw[flecha] (lateral) -- (ad);
+        \draw[flecha] (ad) -- (dominio);
+
+    \end{tikzpicture}
+    \vspace{0.5cm}
+    \captionazul{Flujo general de ataque planteado en el laboratorio.}
+    \label{fig:flujo_ataque_laboratorio}
+\end{figure}
+
+% ----------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Diagrama de flujo de ataque mostrando:
+% Web -> Ubuntu -> Credenciales -> AD -> DEV01
+% ----------------------------------------------------------
+
+% ==========================================================
+\subsection{Justificación del uso de OWASP y MITRE ATT\&CK}
+% ==========================================================
+
+La selección de OWASP Top 10 y MITRE ATT\&CK como marcos de referencia responde a la necesidad de fundamentar el laboratorio sobre estándares ampliamente aceptados dentro del ámbito de la ciberseguridad.
+
+OWASP Top 10 constituye una de las referencias más utilizadas para la identificación y clasificación de vulnerabilidades presentes en aplicaciones web. Su adopción permite incorporar al laboratorio fallos representativos que reflejan problemas observados de forma recurrente en entornos reales.
+
+Por su parte, MITRE ATT\&CK proporciona una base de conocimiento estructurada sobre tácticas, técnicas y procedimientos empleados por atacantes reales durante distintas fases de una intrusión. Este marco facilita la modelización de cadenas de ataque completas y permite relacionar cada escenario implementado con técnicas reconocidas por la comunidad de seguridad.
+
+La combinación de ambos enfoques permite cubrir tanto la perspectiva defensiva asociada a las vulnerabilidades como la perspectiva ofensiva relacionada con las técnicas de explotación utilizadas para comprometer los sistemas.
+
+\vspace{0.5cm}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[h]
+    \centering
+    \captionazul{Relación entre componentes del laboratorio y marcos de referencia}
+
+    \setlength{\arrayrulewidth}{0.05mm}
+
+    \begin{tabular}{|C{6cm}|C{3cm}|C{3cm}|}
+        \hline
+        \rowcolor{blue!10}
+        \textbf{Elemento} & \textbf{OWASP} & \textbf{MITRE ATT\&CK} \\
+        \hline
+        Aplicación web vulnerable & Sí & Parcial \\
+        \hline
+        Escalada de privilegios & No & Sí \\
+        \hline
+        Movimiento lateral & No & Sí \\
+        \hline
+        Credenciales inseguras & Sí & Sí \\
+        \hline
+        Persistencia & No & Sí \\
+        \hline
+        Cadena completa de ataque & Sí & Sí \\
+        \hline
+    \end{tabular}
+
+    \renewcommand{\arraystretch}{1}
+    \label{tab:owasp_mitre}
+\end{table}
+\vspace{0.5cm}
+
+% ----------------------------------------------------------
+% IMAGEN RECOMENDADA:
+% Matriz simplificada relacionando las vulnerabilidades
+% implementadas con técnicas MITRE ATT&CK.
+% ----------------------------------------------------------

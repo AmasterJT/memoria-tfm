@@ -36,7 +36,6 @@
 
 \setmainfont{Times New Roman}
 \setmonofont{Arial}
-\newfontfamily\calibribody{Calibri}
 
 % =========================================================
 % MAQUETACIÓN GENERAL
@@ -44,16 +43,19 @@
 \usepackage{geometry}
 \geometry{
   a4paper,
-  inner=30mm,
-  outer=30mm,
-  top=35mm,
-  bottom=30mm,
-  headheight=45pt,
-  headsep=8pt
+  left=3cm,
+  right=3cm,
+  top=3.5cm,
+  bottom=3cm,
+  headheight=18pt,
+  headsep=0.5cm,
+  footskip=2cm
 }
 
-\usepackage{parskip}
-\linespread{1.5}
+%\usepackage{parskip}
+\usepackage{setspace}
+\onehalfspacing
+
 
 % =========================================================
 % PAQUETES GENERALES
@@ -83,7 +85,9 @@
 \usepackage{xurl}
 \usepackage{listings}
 \usepackage[nottoc, notlot, notlof]{tocbibind}
+\usepackage{colortbl}
 
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric}
 \usetikzlibrary{calc}
 
 \makeglossaries
@@ -154,11 +158,12 @@
 % DOCUMENTO
 % =========================================================
 \begin{document}
+\raggedbottom
 
 % ---------------------------------------------------------
 % PORTADA
 % ---------------------------------------------------------
-\printportada{Titulo en español}{Nombre del autor}{Nombre del tutor}{Julio, 2026}{TÍTULO en inglés}
+\printportada{Laboratorio Red Team con escenarios de ataque reproducibles}{Jose Tomas Torre Pedroarena}{Roberto López Santoyo}{Julio, 2026}{Red Team Lab with Reproducible Attack Scenarios}
 
 % ---------------------------------------------------------
 % CONFIGURACIÓN GENERAL DEL CUERPO
@@ -201,26 +206,32 @@
 % 1 Introducción
 \include{Cuerpo/01_introduccion}
 
-% 2 Gestión del proyecto
-\include{Cuerpo/02_gestion_del_proyecto}
+% 2 Fundamentos teóricos
+\include{Cuerpo/02_fundamentos_teoricos}
 
-% 3 Análisis
-\include{Cuerpo/03_analisis}
+% 3 Gestión y metodología del proyecto
+\include{Cuerpo/03_gestion_y_metodologia_del_proyecto}
 
-% 4 Diseño e implementación
-\include{Cuerpo/04_diseno_e_implementacion}
+% 4 Análisis del entorno y requisitos
+\include{Cuerpo/04_analisis_del_entorno_y_requisitos}
 
-% 5 Validación del sistema
-\include{Cuerpo/05_validacion_del_sistema}
+% 5 Diseño del laboratorio
+\include{Cuerpo/05_diseno_del_laboratorio}
 
-% 6 Implementación
-\include{Cuerpo/06_implementacion}
+% 6 Validación y explotación del laboratorio
+\include{Cuerpo/06_validacion_y_explotacion_del_laboratorio}
+
+% 7 Conclusiones y trabajo futuro
+\include{Cuerpo/07_conclusiones_y_trabajo_futuro}
 
 
 % BIBLIOGRAFÍA
 % =========================================================
 \clearpage
 \vspace*{-1cm}
+
+\phantomsection
+\addcontentsline{toc}{section}{Bibliografía}
 
 \nombreCapituloCabecera{RH}{Bibliografía}
 \printbibliography[title={Bibliografía}]
@@ -230,15 +241,28 @@
 % =========================================================
 
 
-% Anexo i - Manuales
-\include{Cuerpo/anexo_i_manuales}
+% Anexo i - Manual de despliegue
+\include{Cuerpo/anexo_i_manual_de_despliegue}
 
-% Anexo ii - Ejemplos de citas, bibliografía y glosario
-\include{Cuerpo/anexo_ii_ejemplos_citas_bibliografia_glosario}
+% Anexo ii - Manual de explotación
+\include{Cuerpo/anexo_ii_manual_de_explotacion}
+
+% Anexo iii - Configuración de red
+\include{Cuerpo/anexo_iii_configuracion_de_red}
+
+% Anexo iv - Scripts y automatizaciones
+\include{Cuerpo/anexo_iv_scripts_y_automatizaciones}
+
+% Anexo v - Evidencias adicionales
+\include{Cuerpo/anexo_v_evidencias_adicionales}
 
 
 % GLOSARIO
 % =========================================================
 \clearpage
+
+\phantomsection
+\addcontentsline{toc}{section}{Glosario de términos}
+
 \crearglosario
 \end{document}

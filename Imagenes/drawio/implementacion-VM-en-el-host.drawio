@@ -1,0 +1,94 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Página-1" id="HltEjZsqsQtdWDRedgj1">
+    <mxGraphModel dx="387" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Hack Nerd Font;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="330" width="285" x="45" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=10;" value="&lt;b&gt;&lt;font&gt;HOST CONVENCIONAL&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="33.67" width="285" x="45" y="22.69" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8D6E7;strokeColor=#6c8ebf;fontFamily=Hack Nerd Font;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="114.48979591836734" width="121.22780487804877" x="199.89987804878044" y="222.0408163265306" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E9817A;strokeColor=#b85450;gradientColor=none;fillStyle=hatch;fontFamily=Hack Nerd Font;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="114.48979591836734" width="121.22780487804877" x="55.10231707317073" y="222.0408163265306" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-31" edge="1" parent="1" source="4BY2cvLneUNH0_UlRHt3-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;fontFamily=Hack Nerd Font;fontSize=10;" target="4BY2cvLneUNH0_UlRHt3-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="173" />
+              <mxPoint x="187" y="173" />
+              <mxPoint x="187" y="279" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Hack Nerd Font;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="114.48979591836734" width="121.22780487804877" x="55.10231707317073" y="87.35163265306122" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontFamily=Hack Nerd Font;fontSize=10;" value="" vertex="1">
+          <mxGeometry height="114.48979591836734" width="121.22780487804877" x="199.89987804878044" y="87.35163265306122" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt; RAM&lt;/b&gt;: 3 GB" vertex="1">
+          <mxGeometry height="20.20408163265306" width="74.08365853658535" x="78.67439024390244" y="127.75979591836735" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt; DISCO&lt;/b&gt;: 40 GB" vertex="1">
+          <mxGeometry height="20.2" width="88.57" x="71.43" y="147.96" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;CPU:&lt;/b&gt;&amp;nbsp;2 cores" vertex="1">
+          <mxGeometry height="20.20408163265306" width="80.81853658536583" x="75.3069512195122" y="168.1679591836735" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;RAM&lt;/b&gt;: 4 GB" vertex="1">
+          <mxGeometry height="20.20408163265306" width="67.34878048780487" x="226.83939024390241" y="134.48979591836735" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;DISCO&lt;/b&gt;: 60 GB" vertex="1">
+          <mxGeometry height="20.2" width="79.17" x="220.93" y="154.69" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b&gt;CPU:&lt;/b&gt;&amp;nbsp;2 cores" vertex="1">
+          <mxGeometry height="20.2" width="79.17" x="220.93" y="174.9" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;RAM&lt;/b&gt;: 3 GB" vertex="1">
+          <mxGeometry height="20.20408163265306" width="63.981341463414616" x="228.52310975609754" y="262.44897959183675" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;DISCO&lt;/b&gt;: 40 GB" vertex="1">
+          <mxGeometry height="20.2" width="79.17" x="220.93" y="282.65" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b&gt;CPU:&lt;/b&gt;&amp;nbsp;2 cores" vertex="1">
+          <mxGeometry height="20.2" width="79.17" x="220.93" y="302.86" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b&gt;CPU:&lt;/b&gt;&amp;nbsp;4 cores" vertex="1">
+          <mxGeometry height="20.2" width="88.57" x="71.43" y="302.86" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;DISCO&lt;/b&gt;: 40 GB" vertex="1">
+          <mxGeometry height="20.2" width="88.57" x="71.43" y="282.65" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;RAM&lt;/b&gt;: 3 GB" vertex="1">
+          <mxGeometry height="20.20408163265306" width="63.981341463414616" x="83.7255487804878" y="262.44897959183675" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=10;" value="&lt;font&gt;&lt;b&gt;Servidor Web&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="33.6734693877551" width="121.22780487804877" x="55.10231707317073" y="87.35163265306122" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=10;" value="&lt;font&gt;&lt;b&gt;Controlador de dominio&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(DC)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="33.6734693877551" width="121.22780487804877" x="199.89987804878044" y="94.08163265306122" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-29" edge="1" parent="1" source="4BY2cvLneUNH0_UlRHt3-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;fontFamily=Hack Nerd Font;fontSize=10;" target="4BY2cvLneUNH0_UlRHt3-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=10;" value="&lt;font&gt;&lt;b&gt;Máquina atacante&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="33.6734693877551" width="121.22780487804877" x="55.10231707317073" y="222.0408163265306" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=10;" value="&lt;font&gt;&lt;b&gt;Estación de trabajo&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="33.6734693877551" width="121.22780487804877" x="199.89987804878044" y="222.0408163265306" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-33" parent="1" style="text;whiteSpace=wrap;html=1;align=center;fontSize=9;" value="&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt; RAM&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;: 16 GB&lt;/span&gt;&lt;span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Hack Nerd Font&amp;quot;; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&amp;nbsp;|&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;DISCO&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;: 220 GB |&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;CPU:&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;&amp;nbsp;8 cores&lt;/span&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="26.94" width="285" x="45" y="53.67" as="geometry" />
+        </mxCell>
+        <mxCell id="4BY2cvLneUNH0_UlRHt3-35" edge="1" parent="1" source="4BY2cvLneUNH0_UlRHt3-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.999;entryY=0.445;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;exitX=0.002;exitY=0.447;exitDx=0;exitDy=0;exitPerimeter=0;" target="4BY2cvLneUNH0_UlRHt3-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

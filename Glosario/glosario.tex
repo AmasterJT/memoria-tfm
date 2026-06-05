@@ -124,24 +124,34 @@
 % Glosario de términos
 % =========================
 
-\newglossaryentry{backend}{
-    name=Backend,
-    description={Conjunto de servidores y componentes software encargados de proporcionar servicios, gestionar la lógica de negocio y permitir el acceso a recursos y datos desde aplicaciones cliente}
+\newglossaryentry{redteam}{
+    name={Red Team},
+    description={Disciplina de seguridad ofensiva orientada a simular ataques reales para evaluar la capacidad de detección y respuesta de una organización}
 }
 
-\newglossaryentry{framework}{
-    name=Framework,
-    description={Estructura de desarrollo compuesta por componentes de software reutilizables, librerías y convenciones que facilitan la creación de aplicaciones de forma estandarizada y eficiente}
+\newglossaryentry{pentesting}{
+    name={Pentesting},
+    description={Proceso autorizado de evaluación de la seguridad de un sistema mediante técnicas de ataque controladas}
 }
 
-\newglossaryentry{resultset}{
-    name=ResultSet,
-    description={Estructura de datos utilizada en JDBC para representar el conjunto de resultados devuelto por una consulta a una base de datos, permitiendo recorrer fila a fila los registros obtenidos y acceder a los valores de cada columna}
+\newglossaryentry{pivoting}{
+    name={Pivoting},
+    description={Técnica que permite utilizar un sistema comprometido como punto de acceso para alcanzar otros sistemas de una red interna}
 }
 
-\newglossaryentry{jdbc}{
-    name=JDBC,
-    description={Java Database Connectivity, API estándar de Java que permite a las aplicaciones acceder y gestionar bases de datos relacionales mediante la ejecución de consultas SQL y la manipulación de los resultados obtenidos}
+\newglossaryentry{lateralmovement}{
+    name={Movimiento lateral},
+    description={Conjunto de técnicas utilizadas por un atacante para desplazarse entre distintos sistemas de una red tras obtener acceso inicial}
+}
+
+\newglossaryentry{hostonly}{
+    name={Red Host-Only},
+    description={Tipo de red virtual aislada que permite la comunicación entre máquinas virtuales y el equipo anfitrión sin exponerlas a redes externas}
+}
+
+\newglossaryentry{snapshot}{
+    name={Snapshot},
+    description={Captura instantánea del estado completo de una máquina virtual que permite restaurarla posteriormente}
 }
 
 
@@ -149,19 +159,68 @@
 % Glosario de siglas
 % =========================
 
-\newacronym
-  [plural=WMS,
-   longplural={Sistemas de Gestión de Almacenes}]
-  {wms}{WMS}{Sistema de Gestión de Almacenes}
+\newacronym{owasp}{OWASP}{Open Worldwide Application Security Project}
+
+\newacronym{ad}{AD}{Active Directory}
+
+\newacronym{vm}{VM}{Máquina Virtual}
+
+\newacronym{dns}{DNS}{Domain Name System}
+
+\newacronym{smb}{SMB}{Server Message Block}
+
+\newacronym{winrm}{WinRM}{Windows Remote Management}
+
+\newacronym{http}{HTTP}{HyperText Transfer Protocol}
+
+\newacronym{https}{HTTPS}{HyperText Transfer Protocol Secure}
+
+\newacronym{php}{PHP}{PHP Hypertext Preprocessor}
+
+\newacronym{sql}{SQL}{Structured Query Language}
+
+\newacronym{mysql}{MySQL}{My Structured Query Language}
+
+\newacronym{apache}{Apache}{Apache HTTP Server}
+
+\newacronym{ssh}{SSH}{Secure Shell}
+
+\newacronym{nat}{NAT}{Network Address Translation}
+
+\newacronym{lan}{LAN}{Local Area Network}
+
+\newacronym{ip}{IP}{Internet Protocol}
+
+\newacronym{cpu}{CPU}{Central Processing Unit}
+
+\newacronym{ram}{RAM}{Random Access Memory}
+
+\newacronym{xfce}{XFCE}{XForms Common Environment}
+
+\newacronym{mitre}{MITRE ATT\&CK}{Adversarial Tactics, Techniques and Common Knowledge}
+
+\newacronym{sqli}{SQLi}{SQL Injection}
+
+\newacronym{xss}{XSS}{Cross-Site Scripting}
+
+\newacronym{dvwa}{DVWA}{Damn Vulnerable Web Application}
+
+\newacronym{cve}{CVE}{Common Vulnerabilities and Exposures}
+
+\newacronym{cwe}{CWE}{Common Weakness Enumeration}
+
+\newacronym{git}{Git}{Sistema de control de versiones distribuido}
+
+\newacronym{github}{GitHub}{Plataforma de alojamiento y gestión de repositorios Git}
 
 \newacronym{api}{API}{Interfaz de Programación de Aplicaciones}
-\newacronym{rest}{REST}{Transferencia de Estado Representacional}
-\newacronym{erp}{ERP}{Planificación de Recursos Empresariales}
 
 
 % =========================
 % Impresión del glosario
 % =========================
+
+\glsaddall
 
 \section*{Glosario de siglas}
 \label{sec:glosario-siglas}

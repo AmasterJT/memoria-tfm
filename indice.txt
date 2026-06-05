@@ -1,40 +1,85 @@
 Capítulo 1: Introducción
-  1.1 Contexto del TFM
-  1.2 Objetivos
-  1.3 Organización del trabajo
+  1.1 Contexto y motivación
+  1.2 Objetivos del trabajo
+    1.2.1 Objetivo general
+    1.2.2 Objetivos específicos
+  1.3 Alcance y limitaciones
+  1.4 Organización de la memoria
 
-Capítulo 2: Gestión del proyecto
-  2.1 Modelo de ciclo de vida
-  2.2 Planificación
-  2.3 Presupuesto (si procede)
+Capítulo 2: Fundamentos teóricos
+  2.1 OWASP Top 10
+  2.2 MITRE ATT&CK
+  2.3 SQL Injection
+  2.4 Cross-Site Scripting (XSS)
+  2.5 Vulnerabilidades de carga de archivos (File Upload)
+  2.6 Exposición de credenciales
+  2.7 Escalada de privilegios en Linux
+    2.7.1 PATH Hijacking
+    2.7.2 Configuraciones inseguras
+  2.8 Pivoting y segmentación de red
+  2.9 Active Directory
+    2.9.1 Componentes principales
+    2.9.2 Usuarios, grupos y permisos
+  2.10 Protocolos y servicios utilizados
+    2.10.1 SMB
+    2.10.2 WinRM
+  2.11 Movimiento lateral en entornos Windows
 
-Capítulo 3: Análisis
-  3.1 Especificación de requisitos
-  3.2 Análisis de los Casos de Uso
-  3.3 Análisis de seguridad
-  3.4 Análisis desde la perspectiva del RGPD (si procede)
+Capítulo 3: Gestión y metodología del proyecto
+  3.1 Metodología de desarrollo
+  3.2 Planificación del proyecto
+  3.3 Recursos utilizados
+    3.3.1 Hardware
+    3.3.2 Software
+  3.4 Coste del proyecto (opcional)
 
-Capítulo 4: Diseño e implementación
-  4.1 Arquitectura del sistema
-    4.1.1 Arquitectura física
-    4.1.2 Arquitectura lógica
-    4.1.3 Diagrama de infraestructuras de nivel 2 (si procede)
-    4.1.4 Diagrama de infraestructuras de nivel 3 (si procede)
-  4.2 Diseño de datos
-    4.2.1 Migración y carga inicial de datos (si procede)
-  4.3 Diseño de la interfaz de usuario
-  4.4 Diagrama de clases
-  4.5 Entorno de construcción
-  4.6 Referencia al repositorio de software
+Capítulo 4: Análisis del entorno y requisitos
+  4.1 Requisitos funcionales
+  4.2 Requisitos no funcionales
+  4.3 Análisis de amenazas y superficie de ataque
+  4.4 Justificación del uso de OWASP y MITRE ATT&CK
 
-Capítulo 5: Validación del sistema
-  5.1 Plan de pruebas
-  5.2 Evaluación del sistema (si procede)
+Capítulo 5: Diseño del laboratorio
+  5.1 Arquitectura general
+    5.1.1 Arquitectura física
+    5.1.2 Arquitectura lógica
+    5.1.3 Segmentación de red
+    5.1.4 Diagrama completo de infraestructura
+  5.2 Diseño del servidor vulnerable
+    5.2.1 Stack tecnológico
+    5.2.2 Portal PYME vulnerable
+    5.2.3 Vulnerabilidades implementadas
+  5.3 Diseño de la infraestructura Active Directory
+    5.3.1 DC01
+    5.3.2 DEV01
+    5.3.3 Usuarios y políticas
+    5.3.4 Servicios internos
+  5.4 Diseño del escenario ofensivo
+  5.5 Automatización y despliegue
+    5.5.1 Docker
+    5.5.2 Reproducibilidad del laboratorio
+  5.6 Repositorio y estructura del proyecto
 
-Capítulo 6: Implementación
-  6.1 Conclusiones
-  6.2 Líneas futuras
+Capítulo 6: Validación y explotación del laboratorio
+  6.1 Metodología de pruebas
+  6.2 Escenarios de ataque realizados
+    6.2.1 Reconocimiento inicial
+    6.2.2 Explotación web
+    6.2.3 Obtención de reverse shell
+    6.2.4 Escalada de privilegios Linux
+    6.2.5 Pivoting
+    6.2.6 Enumeración Active Directory
+    6.2.7 Movimiento lateral
+    6.2.8 Compromiso del dominio
+  6.3 Validación de reproducibilidad
+
+Capítulo 7: Conclusiones y trabajo futuro 
+  7.1 Conclusiones
+  7.2 Líneas futuras
 
 Anexos:
-  Anexo i: Manuales
-  Anexo ii: Titulo anexo ii
+  Anexo i: Manual de despliegue
+  Anexo ii: Manual de explotación
+  Anexo iii: Configuración de red
+  Anexo iv: Scripts y automatizaciones
+  Anexo v: Evidencias adicionales
