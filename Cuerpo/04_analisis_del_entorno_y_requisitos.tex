@@ -41,9 +41,6 @@ El laboratorio debe incorporar una infraestructura Windows basada en Active Dire
 
 La infraestructura debe ejecutarse en una red virtual aislada que impida afectar a sistemas externos durante las pruebas.
 
-\item \textbf{Documentación de los escenarios de explotación.}
-
-Cada vulnerabilidad implementada debe estar acompañada de una guía de explotación y mitigación que facilite su utilización con fines docentes.
 
 \end{enumerate}
 
@@ -54,14 +51,14 @@ Cada vulnerabilidad implementada debe estar acompañada de una guía de explotac
 % ----------------------------------------------------------
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Imagenes/Diagrama-general-alto-nivel.png}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{Imagenes/Diagrama-general-alto-nivel.png}
 
-    \vspace{0.2cm}
-    \captionazul{Diagrama general de alto nivel del laboratorio, mostrando los principales componentes y su interconexión.}
-    \label{fig:diagrama_general_alto_nivel}
-\end{figure}
+%     \vspace{0.2cm}
+%     \captionazul{Diagrama general de alto nivel del laboratorio, mostrando los principales componentes y su interconexión.}
+%     \label{fig:diagrama_general_alto_nivel}
+% \end{figure}
 
 
 
@@ -84,10 +81,6 @@ La arquitectura debe permitir incorporar nuevas vulnerabilidades y escenarios de
 \item \textbf{Mantenibilidad.}
 
 Los distintos componentes deben encontrarse correctamente documentados para facilitar futuras modificaciones y ampliaciones.
-
-\item \textbf{Portabilidad.}
-
-El laboratorio debe poder ejecutarse sobre distintas plataformas de virtualización compatibles con VMware Workstation.
 
 \item \textbf{Seguridad operacional.}
 
@@ -118,8 +111,6 @@ Los requisitos hardware deben mantenerse dentro de unos márgenes asumibles para
         Escalabilidad & Facilitar la incorporación de nuevos escenarios de ataque y vulnerabilidades. \\
         \hline
         Mantenibilidad & Simplificar futuras modificaciones y ampliaciones del laboratorio. \\
-        \hline
-        Portabilidad & Permitir la ejecución en diferentes entornos de virtualización. \\
         \hline
         Seguridad & Mantener el aislamiento respecto a redes externas. \\
         \hline
@@ -279,50 +270,52 @@ La Figura~\ref{fig:flujo_ataque_laboratorio} representa una posible cadena de at
 % Web -> Ubuntu -> Credenciales -> AD -> DEV01
 % ----------------------------------------------------------
 
-% ==========================================================
-\subsection{Justificación del uso de OWASP y MITRE ATT\&CK}
-% ==========================================================
 
-La selección de OWASP Top 10 y MITRE ATT\&CK como marcos de referencia responde a la necesidad de fundamentar el laboratorio sobre estándares ampliamente aceptados dentro del ámbito de la ciberseguridad.
 
-OWASP Top 10 constituye una de las referencias más utilizadas para la identificación y clasificación de vulnerabilidades presentes en aplicaciones web. Su adopción permite incorporar al laboratorio fallos representativos que reflejan problemas observados de forma recurrente en entornos reales.
+% % ==========================================================
+% \subsection{Justificación del uso de OWASP y MITRE ATT\&CK}
+% % ==========================================================
 
-Por su parte, MITRE ATT\&CK proporciona una base de conocimiento estructurada sobre tácticas, técnicas y procedimientos empleados por atacantes reales durante distintas fases de una intrusión. Este marco facilita la modelización de cadenas de ataque completas y permite relacionar cada escenario implementado con técnicas reconocidas por la comunidad de seguridad.
+% La selección de OWASP Top 10 y MITRE ATT\&CK como marcos de referencia responde a la necesidad de fundamentar el laboratorio sobre estándares ampliamente aceptados dentro del ámbito de la ciberseguridad.
 
-La combinación de ambos enfoques permite cubrir tanto la perspectiva defensiva asociada a las vulnerabilidades como la perspectiva ofensiva relacionada con las técnicas de explotación utilizadas para comprometer los sistemas.
+% OWASP Top 10 constituye una de las referencias más utilizadas para la identificación y clasificación de vulnerabilidades presentes en aplicaciones web. Su adopción permite incorporar al laboratorio fallos representativos que reflejan problemas observados de forma recurrente en entornos reales.
 
-\vspace{0.5cm}
-\renewcommand{\arraystretch}{1.5}
+% Por su parte, MITRE ATT\&CK proporciona una base de conocimiento estructurada sobre tácticas, técnicas y procedimientos empleados por atacantes reales durante distintas fases de una intrusión. Este marco facilita la modelización de cadenas de ataque completas y permite relacionar cada escenario implementado con técnicas reconocidas por la comunidad de seguridad.
 
-\begin{table}[h]
-    \centering
-    \captionazul{Relación entre componentes del laboratorio y marcos de referencia}
+% La combinación de ambos enfoques permite cubrir tanto la perspectiva defensiva asociada a las vulnerabilidades como la perspectiva ofensiva relacionada con las técnicas de explotación utilizadas para comprometer los sistemas.
 
-    \setlength{\arrayrulewidth}{0.05mm}
+% \vspace{0.5cm}
+% \renewcommand{\arraystretch}{1.5}
 
-    \begin{tabular}{|C{6cm}|C{3cm}|C{3cm}|}
-        \hline
-        \rowcolor{blue!10}
-        \textbf{Elemento} & \textbf{OWASP} & \textbf{MITRE ATT\&CK} \\
-        \hline
-        Aplicación web vulnerable & Sí & Parcial \\
-        \hline
-        Escalada de privilegios & No & Sí \\
-        \hline
-        Movimiento lateral & No & Sí \\
-        \hline
-        Credenciales inseguras & Sí & Sí \\
-        \hline
-        Persistencia & No & Sí \\
-        \hline
-        Cadena completa de ataque & Sí & Sí \\
-        \hline
-    \end{tabular}
+% \begin{table}[h]
+%     \centering
+%     \captionazul{Relación entre componentes del laboratorio y marcos de referencia}
 
-    \renewcommand{\arraystretch}{1}
-    \label{tab:owasp_mitre}
-\end{table}
-\vspace{0.5cm}
+%     \setlength{\arrayrulewidth}{0.05mm}
+
+%     \begin{tabular}{|C{6cm}|C{3cm}|C{3cm}|}
+%         \hline
+%         \rowcolor{blue!10}
+%         \textbf{Elemento} & \textbf{OWASP} & \textbf{MITRE ATT\&CK} \\
+%         \hline
+%         Aplicación web vulnerable & Sí & Si \\
+%         \hline
+%         Escalada de privilegios & No & Sí \\
+%         \hline
+%         Movimiento lateral & No & Sí \\
+%         \hline
+%         Credenciales inseguras & Sí & Sí \\
+%         \hline
+%         Persistencia & No & Sí \\
+%         \hline
+%         Cadena completa de ataque & Sí & Sí \\
+%         \hline
+%     \end{tabular}
+
+%     \renewcommand{\arraystretch}{1}
+%     \label{tab:owasp_mitre}
+% \end{table}
+% \vspace{0.5cm}
 
 % ----------------------------------------------------------
 % IMAGEN RECOMENDADA:

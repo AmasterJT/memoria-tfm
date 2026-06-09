@@ -78,8 +78,40 @@ Capítulo 7: Conclusiones y trabajo futuro
   7.2 Líneas futuras
 
 Anexos:
-  Anexo i: Manual de despliegue
-  Anexo ii: Manual de explotación
-  Anexo iii: Configuración de red
-  Anexo iv: Scripts y automatizaciones
-  Anexo v: Evidencias adicionales
+  Anexo I. Manual de despliegue
+      I.1 Requisitos previos
+      I.2 Instalación del servidor Ubuntu
+      I.3 Despliegue del portal vulnerable
+      I.4 Configuración de Docker
+      I.5 Puesta en marcha del laboratorio
+
+  Anexo II. Manual de explotación
+      II.1 Reconocimiento
+      II.2 Explotación web
+      II.3 Escalada de privilegios
+      II.4 Pivoting
+      II.5 Enumeración de Active Directory
+      II.6 Movimiento lateral
+
+  Anexo III. Configuración de red
+      III.1 VMnet8 y VMnet10
+      III.2 Direccionamiento IP
+      III.3 Segmentación del laboratorio
+
+  Anexo IV. Scripts y automatizaciones
+      IV.1 setup_tfm_lab.sh
+      IV.2 docker-compose.yml
+      IV.3 Scripts auxiliares
+
+  Anexo V. Personalización de Active Directory
+      V.1 Instalación de Windows Server 2012
+      V.2 Promoción a controlador de dominio
+      V.3 Creación del dominio corp.local
+      V.4 Unidades organizativas (OU)
+      V.5 Usuarios y grupos
+      V.6 Políticas de grupo (GPO)
+      V.7 Recursos compartidos
+      V.8 Configuración de DNS
+      V.9 Habilitación de WinRM
+      V.10 Incorporación de DEV01 al dominio
+      V.11 Servicios adicionales
