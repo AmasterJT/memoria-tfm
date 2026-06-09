@@ -87,6 +87,10 @@
 \usepackage[nottoc, notlot, notlof]{tocbibind}
 \usepackage{colortbl}
 \usepackage[most]{tcolorbox}
+%\usepackage{minted}
+\tcbuselibrary{listings,skins,breakable}
+
+\newcommand{\Romanref}[1]{\uppercase\expandafter{\romannumeral\getrefnumber{#1}}}
 
 
 \usetikzlibrary{positioning, arrows.meta, shapes.geometric}
@@ -250,13 +254,13 @@
 \include{Cuerpo/anexo_ii_manual_de_explotacion}
 
 % Anexo iii - Configuración de red
-\include{Cuerpo/anexo_iii_configuracion_de_red}
+%\include{Cuerpo/anexo_iii_configuracion_de_red}
 
 % Anexo iv - Scripts y automatizaciones
-\include{Cuerpo/anexo_iv_scripts_y_automatizaciones}
+%\include{Cuerpo/anexo_iv_scripts_y_automatizaciones}
 
-% Anexo v - Evidencias adicionales
-\include{Cuerpo/anexo_v_evidencias_adicionales}
+% Anexo v - Implementación de Active Directory
+\include{Cuerpo/anexo_v_implementacion_active_directory}
 
 
 % GLOSARIO

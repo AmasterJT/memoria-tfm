@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
   <diagram name="Página-1" id="HltEjZsqsQtdWDRedgj1">
-    <mxGraphModel dx="831" dy="868" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1208" dy="1269" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,16 +14,16 @@
           <mxGeometry height="114.48979591836734" width="121.22780487804877" x="199.89987804878044" y="222.0408163265306" as="geometry" />
         </mxCell>
         <mxCell id="4BY2cvLneUNH0_UlRHt3-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;RAM&lt;/b&gt;: 3GB" vertex="1">
-          <mxGeometry height="20.2" width="118.97" x="201.03" y="262.45" as="geometry" />
+          <mxGeometry height="20.2" width="118.97" x="201.03" y="270" as="geometry" />
         </mxCell>
         <mxCell id="4BY2cvLneUNH0_UlRHt3-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;DISCO&lt;/b&gt;: 40GB" vertex="1">
-          <mxGeometry height="20.2" width="121.03" x="200" y="282.65" as="geometry" />
+          <mxGeometry height="20.2" width="121.03" x="200" y="290.2" as="geometry" />
         </mxCell>
         <mxCell id="4BY2cvLneUNH0_UlRHt3-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b&gt;CPU:&lt;/b&gt;&amp;nbsp;2cores" vertex="1">
-          <mxGeometry height="20.2" width="118.97" x="201.03" y="302.86" as="geometry" />
+          <mxGeometry height="20.2" width="118.97" x="201.03" y="310.41" as="geometry" />
         </mxCell>
         <mxCell id="4BY2cvLneUNH0_UlRHt3-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=13;" value="&lt;font&gt;&lt;b&gt;Estación de trabajo&lt;/b&gt;&lt;/font&gt;" vertex="1">
-          <mxGeometry height="33.6734693877551" width="121.22780487804877" x="199.89987804878044" y="222.0408163265306" as="geometry" />
+          <mxGeometry height="37.96" width="121.23" x="199.9" y="226.04" as="geometry" />
         </mxCell>
         <mxCell id="4BY2cvLneUNH0_UlRHt3-33" parent="1" style="text;whiteSpace=wrap;html=1;align=center;fontSize=13;" value="&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt; RAM&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;:16GB&lt;/span&gt;&lt;span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Hack Nerd Font&amp;quot;; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;DISCO:&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;220GB&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;CPU:&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;8 cores&lt;/span&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="26.94" width="310" x="20" y="58.67" as="geometry" />
@@ -82,16 +82,16 @@
           <mxGeometry height="114.48979591836734" width="121.22780487804877" x="539.8998780487805" y="222.0408163265306" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;RAM&lt;/b&gt;: 3GB" vertex="1">
-          <mxGeometry height="20.2" width="118.97" x="541.03" y="262.45000000000005" as="geometry" />
+          <mxGeometry height="20.2" width="118.97" x="541.03" y="270.00000000000006" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;b&gt;DISCO&lt;/b&gt;: 40GB" vertex="1">
-          <mxGeometry height="20.2" width="121.03" x="540" y="282.65" as="geometry" />
+          <mxGeometry height="20.2" width="121.03" x="540" y="290.2" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b&gt;CPU:&lt;/b&gt;&amp;nbsp;2cores" vertex="1">
-          <mxGeometry height="20.2" width="118.97" x="541.03" y="302.86" as="geometry" />
+          <mxGeometry height="20.2" width="118.97" x="541.03" y="310.41" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=13;" value="&lt;font&gt;&lt;b&gt;Estación de trabajo&lt;/b&gt;&lt;/font&gt;" vertex="1">
-          <mxGeometry height="33.6734693877551" width="121.22780487804877" x="539.8998780487805" y="222.0408163265306" as="geometry" />
+          <mxGeometry height="37.96" width="121.23" x="539.9" y="222.04" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-19" parent="1" style="text;whiteSpace=wrap;html=1;align=center;fontSize=13;" value="&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt; RAM&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;:16GB&lt;/span&gt;&lt;span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Hack Nerd Font&amp;quot;; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;DISCO:&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;220GB&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;CPU:&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Hack Nerd Font&amp;quot;;&quot;&gt;8 cores&lt;/span&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="26.94" width="310" x="360" y="58.670000000000016" as="geometry" />
@@ -143,19 +143,23 @@
         <mxCell id="DncXDaYH-NHJZItt79l5-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E9817A;strokeColor=#E9817A;fontFamily=Hack Nerd Font;fontSize=13;fillStyle=hatch;" value="" vertex="1">
           <mxGeometry height="114.48979591836734" width="121.22780487804877" x="366.67231707317075" y="222.03999999999996" as="geometry" />
         </mxCell>
-        <mxCell id="DncXDaYH-NHJZItt79l5-35" edge="1" parent="1" source="DncXDaYH-NHJZItt79l5-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="DncXDaYH-NHJZItt79l5-15">
+        <mxCell id="DncXDaYH-NHJZItt79l5-35" edge="1" parent="1" source="DncXDaYH-NHJZItt79l5-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" target="DncXDaYH-NHJZItt79l5-25">
           <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="278" />
+              <mxPoint x="500" y="189" />
+            </Array>
             <mxPoint x="548.3157894736843" y="270.22731471535985" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt; RAM&lt;/b&gt;: 3GB" vertex="1">
-          <mxGeometry height="20.2" width="120" x="367.57" y="262.44836734693877" as="geometry" />
+          <mxGeometry height="20.2" width="120" x="367.9" y="269.9983673469388" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt; DISCO&lt;/b&gt;: 40GB" vertex="1">
-          <mxGeometry height="20.2" width="121.57" x="366" y="282.6500000000001" as="geometry" />
+          <mxGeometry height="20.2" width="121.57" x="366.33" y="290.2000000000001" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=13;fontFamily=Hack Nerd Font;" value="&lt;b&gt;&lt;font&gt;󰍛&amp;nbsp;&lt;/font&gt;CPU:4&lt;/b&gt;&amp;nbsp;cores" vertex="1">
-          <mxGeometry height="20.2" width="121" x="366.57" y="302.85836734693885" as="geometry" />
+          <mxGeometry height="20.2" width="121" x="366.9" y="310.40836734693886" as="geometry" />
         </mxCell>
         <mxCell id="DncXDaYH-NHJZItt79l5-39" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Hack Nerd Font;fontSize=13;" value="&lt;font&gt;&lt;b&gt;Máquina atacante&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="33.6734693877551" width="121.22780487804877" x="366.67231707317075" y="225.03999999999996" as="geometry" />

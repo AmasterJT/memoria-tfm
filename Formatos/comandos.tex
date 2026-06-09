@@ -316,3 +316,99 @@
     \vspace*{-2cm}%
     \input{Glosario/glosario}%
 }
+
+
+
+
+
+
+
+
+
+
+% =========================================================
+% CONTADOR PERSONALIZADO PARA ANEXOS
+% =========================================================
+\newcounter{anexo}
+\renewcommand{\theanexo}{\Roman{anexo}}
+
+\newcommand{\crearanexo}[2]{%
+    \clearpage
+    \vspace*{-1cm}
+    \refstepcounter{anexo}%
+    \phantomsection
+    \addcontentsline{toc}{section}{Anexo \theanexo\ - #1}
+    \nombreCapituloCabecera{RH}{Anexo \theanexo\ - #1}
+    \section*{Anexo \theanexo\ - #1}
+    \label{#2}
+}
+
+
+
+
+
+% =========================================================
+% BLOQUES DE CÓDIGO ESTILO GITHUB SIN MINTED
+% =========================================================
+
+\definecolor{githubBg}{RGB}{246,248,250}
+\definecolor{githubComment}{RGB}{106,115,125}
+\definecolor{githubKeyword}{RGB}{215,58,73}
+\definecolor{githubString}{RGB}{3,47,98}
+
+\lstdefinestyle{githubbash}{
+    language=bash,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{githubBg},
+    keywordstyle=\color{githubKeyword}\bfseries,
+    commentstyle=\color{githubComment},
+    stringstyle=\color{githubString},
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
+    frame=none
+}
+
+\lstdefinestyle{githubconfig}{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{githubBg},
+    keywordstyle=\color{githubKeyword}\bfseries,
+    commentstyle=\color{githubComment},
+    stringstyle=\color{githubString},
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
+    frame=none
+}
+
+\newtcblisting{bashbox}{
+    listing only,
+    enhanced,
+    breakable,
+    colback=githubBg,
+    colframe=githubBg,
+    boxrule=0pt,
+    arc=2mm,
+    left=2mm,
+    right=2mm,
+    top=1mm,
+    bottom=1mm,
+    listing options={style=githubbash}
+}
+
+\newtcblisting{configbox}{
+    listing only,
+    enhanced,
+    breakable,
+    colback=githubBg,
+    colframe=githubBg,
+    boxrule=0pt,
+    arc=2mm,
+    left=2mm,
+    right=2mm,
+    top=1mm,
+    bottom=1mm,
+    listing options={style=githubconfig}
+}
