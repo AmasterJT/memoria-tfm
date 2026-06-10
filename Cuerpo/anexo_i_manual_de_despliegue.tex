@@ -18,46 +18,9 @@ Como primer paso debemos configurar la red VMnet10 en VMware Workstation, que se
 
 \subsection*{Configuración de la red VMnet10 en VMware Workstation}
 
-\noindent
-\begin{minipage}[t]{0.57\textwidth}
-\vspace{0pt}
-Configuracion de dos redes virtuales en VMware Workstation:
+Configuracion de dos redes virtuales en VMware Workstation. N Normalmente \texttt{VMnet8} viene preconfigurada como red NAT, por lo que es posible que ya exista, sin embargo, es necesario crear una nueva red interna  \texttt{VMnet10} para la simulación de la red corporativa.
 
-\begin{itemize}
-    \item VMnet8 (NAT), utilizado para proporcionar acceso a Internet.
-    \item VMnet10 (red interna), empleado para la comunicación entre los sistemas corporativos.
-\end{itemize}
-
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.4\textwidth}
-
-\vfill
-\vfill
-\centering
-
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{|l|c|}
-\hline
-\rowcolor{AzulTFG!20}
-\textbf{Equipo} & \textbf{IP} \\
-\hline
-Ubuntu Server & 10.10.10.20 \\
-\hline
-DC01 & 10.10.10.10 \\
-\hline
-DEV01 & 10.10.10.30 \\
-\hline
-\end{tabular}
-
-\captionof{table}{Direcciones IP del laboratorio}
-\label{tab:ips_laboratorio}
-
-\vfill
-\end{minipage}
-
-
+\vspace{0.5cm}
 \begin{tcolorbox}[
     enhanced,
     breakable,
@@ -83,16 +46,19 @@ En VMware Workstation.
     \item Seleccionamos en el desplegable \texttt{VMnet10}
 
     \item Configurar \texttt{VMnet10} como red interna seleccionando la opción:
+    
+    
+    \begin{itemize}
+        \item Host-only.
+        \item Desactivar \textit{conect a host virtual adapter to his network}.
+        \item Desactivar el servidor DHCP.
+    \end{itemize}
 
-    \begin{center}
-        \texttt{Host-only} \\
-        \texttt{Desactivar \textit{conect a host virtual adapter to his network}} \\
-        \texttt{Desactivar el servidor DHCP}
-    \end{center}
+    \begin{itemize}
+        \item \texttt{Subnet IP: 10.10.10.0}.
+        \item \texttt{Subnet mask: 255.255.255.0}.
+    \end{itemize}
 
-    \begin{center}
-        \texttt{Subnet IP: 10.10.10.0} | \texttt{Subnet mask: 255.255.255.0}
-    \end{center}
 
     \item Aplicar los cambios pulsando \texttt{Apply} y después \texttt{OK}.
 
@@ -123,17 +89,17 @@ Dependiendo del método de despliegue elegido, las máquinas virtuales pueden ve
 Con el objetivo de facilitar la reproducibilidad del laboratorio, se han definido dos alternativas de instalación:
 
 \begin{enumerate}
-    \item Despliegue mediante máquinas virtuales preconfiguradas.
+    \item Instalación mediante máquinas virtuales preconfiguradas.
     \item Instalación manual desde cero.
 \end{enumerate}
 
 % ======================================================
-\section*{Despliegue mediante máquinas virtuales preconfiguradas}
+\subsection*{Instalación mediante máquinas virtuales preconfiguradas}
 % ======================================================
 
 Este método permite disponer del laboratorio completamente funcional en pocos minutos. Las máquinas virtuales ya contienen todas las configuraciones y vulnerabilidades implementadas durante el desarrollo del proyecto.
 
-\subsection*{Descarga de las máquinas virtuales}
+\subsubsection*{Descarga de las máquinas virtuales}
 
 En primer lugar, deben descargarse las máquinas virtuales correspondientes a:
 
@@ -143,14 +109,13 @@ En primer lugar, deben descargarse las máquinas virtuales correspondientes a:
     \item DEV01 (Windows 7).
 \end{itemize}
 
-\subsection*{Importación en VMware Workstation}
+\subsubsection*{Importación en VMware Workstation}
 
 Una vez descargados los archivos, se procede a:
 
 \begin{enumerate}
     \item Descomprimir el contenido.
-    \item Abrir VMware Workstation.
-    \item Importar las tres máquinas virtuales.
+    \item Importar las tres máquinas virtuales en VMware Workstation.
     \item Verificar la configuración de las interfaces de red.
     \item Encender las máquinas virtuales.
 \end{enumerate}
@@ -164,12 +129,12 @@ Una vez descargados los archivos, se procede a:
 
 % ======================================================
 \clearpage
-\section*{Instalación manual}
+\subsection*{Instalación manual}
 % ======================================================
 
 Alternativamente, la infraestructura puede desplegarse desde cero mediante la instalación manual de cada una de las máquinas virtuales. Este procedimiento permite comprender con mayor detalle la configuración interna del laboratorio y facilita su adaptación a otros entornos.
 
-\subsection*{Creación de las máquinas virtuales}
+\subsubsection*{Creación de las máquinas virtuales}
 
 Antes de comenzar la instalación de los sistemas operativos, se deben crear las máquinas virtuales en VMware Workstation con las características indicadas en la Tabla~\ref{tab:ips_laboratorio} y en el Capítulo 5.
 
@@ -182,7 +147,7 @@ Cada máquina debe conectarse a la red correspondiente:
 \end{itemize}
 
 % ------------------------------------------------------
-\subsection*{Instalación del servidor Ubuntu}
+\subsubsection*{Instalación del servidor Ubuntu}
 % ------------------------------------------------------
 
 El servidor Ubuntu actúa como máquina víctima principal y aloja el portal web vulnerable. Para su instalación se utiliza Ubuntu Server 22.04 con la siguiente configuración:
@@ -195,7 +160,7 @@ El servidor Ubuntu actúa como máquina víctima principal y aloja el portal web
     \item Adaptador 2: VMnet10 (red interna).
 \end{itemize}
 
-\subsubsection*{Configuración de red en Ubuntu}
+\subsubsubsection*{Configuración de red en Ubuntu}
 
 Una vez instalado el sistema operativo, se configura la interfaz interna con una dirección IP estática dentro de la red \texttt{10.10.10.0/24}.
 
@@ -231,7 +196,7 @@ Finalmente, se comprueba que la dirección IP se ha asignado correctamente:
 ip a
 \end{bashbox}
 
-\subsubsection*{Descarga del laboratorio}
+\subsubsubsection*{Descarga del laboratorio}
 
 Una vez configurada la red, se clona el repositorio del proyecto:
 
@@ -241,7 +206,7 @@ git clone https://github.com/AmasterJT/TFM-Ciber-CEU-Jose-Torre.git
 cd TFM-Ciber-CEU-Jose-Torre
 \end{bashbox}
 
-\subsubsection*{Ejecución del script de despliegue}
+\subsubsubsection*{Ejecución del script de despliegue}
 
 A continuación se conceden permisos de ejecución al script de instalación y se ejecuta con privilegios de administrador:
 
@@ -263,7 +228,7 @@ Este script realiza automáticamente las siguientes acciones:
 \end{itemize}
 
 % ------------------------------------------------------
-\subsection*{Instalación del controlador de dominio DC01}
+\subsubsection*{Instalación del controlador de dominio DC01}
 % ------------------------------------------------------
 
 La máquina \texttt{DC01} actúa como controlador de dominio principal del laboratorio. Se instala utilizando Windows Server 2012 en español con la siguiente configuración:
@@ -275,7 +240,7 @@ La máquina \texttt{DC01} actúa como controlador de dominio principal del labor
     \item Adaptador de red conectado a VMnet10.
 \end{itemize}
 
-\subsubsection*{Configuración de la dirección IP en DC01}
+\subsubsubsection*{Configuración de la dirección IP en DC01}
 
 Una vez instalado Windows Server 2012, se configura una dirección IP estática desde la interfaz gráfica del sistema.
 
@@ -305,24 +270,37 @@ El procedimiento es el siguiente:
 \end{enumerate}
 \end{tcolorbox}
 
-\begin{center}
-\begin{tabular}{|l|c|}
-\hline
-\rowcolor{AzulTFG!20}
-\textbf{Parámetro} & \textbf{Valor} \\
-\hline
-Dirección IP & 10.10.10.10 \\
-\hline
-Máscara de subred & 255.255.255.0 \\
-\hline
-Puerta de enlace & Vacía \\
-\hline
-Servidor DNS preferido & 10.10.10.10 \\
-\hline
-\end{tabular}
-\end{center}
 
-\subsubsection*{Instalación de Active Directory}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[h]
+    \centering
+    \captionazul{Configuracion de la dirección IP en DC01.}
+
+    \setlength{\arrayrulewidth}{0.05mm}
+
+    \begin{tabular}{|l|c|}
+        \hline
+        \rowcolor{blue!10}
+        \textbf{Parámetro} & \textbf{Valor} \\
+        \hline
+        Dirección IP & 10.10.10.10 \\
+        \hline
+        Máscara de subred & 255.255.255.0 \\
+        \hline
+        Puerta de enlace & Vacía \\
+        \hline
+        Servidor DNS preferido & 10.10.10.10 \\
+        \hline
+    \end{tabular}
+
+    \renewcommand{\arraystretch}{1}
+    \label{tab:stack_tecnologico}
+\end{table}
+
+
+
+\subsubsubsection*{Instalación de Active Directory}
 
 Una vez configurada la red, se instalan los roles necesarios para convertir el servidor en controlador de dominio.
 
@@ -351,7 +329,7 @@ Una vez configurada la red, se instalan los roles necesarios para convertir el s
 \end{enumerate}
 \end{tcolorbox}
 
-\subsubsection*{Promoción a controlador de dominio}
+\subsubsubsection*{Promoción a controlador de dominio}
 
 Tras instalar el rol de Active Directory, el servidor debe promocionarse a controlador de dominio.
 
@@ -382,7 +360,7 @@ Tras instalar el rol de Active Directory, el servidor debe promocionarse a contr
 
 Tras el reinicio, el servidor \texttt{DC01} quedará configurado como controlador de dominio del dominio \texttt{corp.local}.
 
-\subsubsection*{Configuración básica del dominio}
+\subsubsubsection*{Configuración básica del dominio}
 
 Una vez creado el dominio, se configuran los elementos básicos necesarios para el laboratorio:
 
@@ -397,7 +375,7 @@ Una vez creado el dominio, se configuran los elementos básicos necesarios para 
 Los detalles completos relativos a la personalización del dominio, creación de usuarios, grupos y políticas se documentan en el Anexo~\ref{anexo:implementacion_active_directory}.
 
 % ------------------------------------------------------
-\subsection*{Instalación de la estación DEV01}
+\subsubsection*{Instalación de la estación DEV01}
 % ------------------------------------------------------
 
 La máquina \texttt{DEV01} representa una estación de trabajo corporativa integrada en el dominio. Se instala utilizando Windows 7 Professional en español con la siguiente configuración:
@@ -409,7 +387,7 @@ La máquina \texttt{DEV01} representa una estación de trabajo corporativa integ
     \item Adaptador de red conectado a VMnet10.
 \end{itemize}
 
-\subsubsection*{Configuración de la dirección IP en DEV01}
+\subsubsubsection*{Configuración de la dirección IP en DEV01}
 
 Tras instalar Windows 7, se configura la dirección IP estática del equipo desde la interfaz gráfica.
 
@@ -437,24 +415,38 @@ Tras instalar Windows 7, se configura la dirección IP estática del equipo desd
 \end{enumerate}
 \end{tcolorbox}
 
-\begin{center}
-\begin{tabular}{|l|c|}
-\hline
-\rowcolor{AzulTFG!20}
-\textbf{Parámetro} & \textbf{Valor} \\
-\hline
-Dirección IP & 10.10.10.30 \\
-\hline
-Máscara de subred & 255.255.255.0 \\
-\hline
-Puerta de enlace & Vacía \\
-\hline
-Servidor DNS preferido & 10.10.10.10 \\
-\hline
-\end{tabular}
-\end{center}
 
-\subsubsection*{Unión de DEV01 al dominio}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{table}[h]
+    \centering
+    \captionazul{Configuracion de la dirección IP en DEV01.}
+
+    \setlength{\arrayrulewidth}{0.05mm}
+
+    \begin{tabular}{|l|c|}
+        \hline
+        \rowcolor{blue!10}
+        \textbf{Parámetro} & \textbf{Valor} \\
+        \hline
+        Dirección IP & 10.10.10.30 \\
+        \hline
+        Máscara de subred & 255.255.255.0 \\
+        \hline
+        Puerta de enlace & Vacía \\
+        \hline
+        Servidor DNS preferido & 10.10.10.10 \\
+        \hline
+    \end{tabular}
+
+    \renewcommand{\arraystretch}{1}
+    \label{tab:stack_tecnologico}
+\end{table}
+
+
+
+\subsubsubsection*{Unión de DEV01 al dominio}
 
 Una vez configurada la IP y comprobada la conectividad con \texttt{DC01}, la máquina se une al dominio \texttt{corp.local}.
 
@@ -487,7 +479,7 @@ Una vez configurada la IP y comprobada la conectividad con \texttt{DC01}, la má
 Tras el reinicio, \texttt{DEV01} quedará integrada en el dominio y podrá autenticarse con usuarios corporativos.
 
 % ======================================================
-\section*{Puesta en marcha}
+\subsubsection*{Puesta en marcha}
 % ======================================================
 
 Una vez desplegada la infraestructura, se recomienda iniciar las máquinas en el siguiente orden:
@@ -501,18 +493,18 @@ Una vez desplegada la infraestructura, se recomienda iniciar las máquinas en el
 
 Este orden permite garantizar que los servicios de dominio y resolución DNS estén disponibles antes de iniciar el resto de sistemas.
 
-\subsection*{Comprobaciones básicas}
+\subsubsection*{Comprobaciones básicas}
 
 Antes de comenzar los ejercicios de explotación, se recomienda realizar las siguientes comprobaciones.
 
-\subsubsection*{Comprobaciones desde Ubuntu}
+\subsubsubsection*{Comprobaciones desde Ubuntu}
 
 \begin{bashbox}
 ping 10.10.10.10
 ping 10.10.10.30
 \end{bashbox}
 
-\subsubsection*{Comprobaciones desde DEV01}
+\subsubsubsection*{Comprobaciones desde DEV01}
 
 Desde una consola de Windows se puede comprobar la conectividad con el controlador de dominio:
 
@@ -521,7 +513,7 @@ ping DC01
 ping corp.local
 \end{configbox}
 
-\subsubsection*{Comprobación del portal web}
+\subsubsubsection*{Comprobación del portal web}
 
 Desde la máquina atacante o desde un equipo con conectividad hacia el servidor Ubuntu, se comprueba el acceso al portal vulnerable:
 

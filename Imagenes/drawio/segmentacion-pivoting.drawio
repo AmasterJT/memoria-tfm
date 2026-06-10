@@ -4,11 +4,14 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="W2pszy52U0KSxzTIZwHw-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
-          <mxGeometry height="200" width="480" x="80" y="40" as="geometry" />
+        <mxCell id="D64JlSoWtO8UgLftChxb-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="180" width="212" x="80" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="D64JlSoWtO8UgLftChxb-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=14;" value="RED A" vertex="1">
+          <mxGeometry height="30" width="61" x="80" y="50" as="geometry" />
         </mxCell>
         <mxCell id="W2pszy52U0KSxzTIZwHw-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
-          <mxGeometry height="180" width="261" x="290" y="50" as="geometry" />
+          <mxGeometry height="180" width="261" x="300" y="50" as="geometry" />
         </mxCell>
         <mxCell id="W2pszy52U0KSxzTIZwHw-4" parent="1" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#CC0000;shape=mxgraph.azure.laptop" value="" vertex="1">
           <mxGeometry height="50" width="83.33" x="90" y="150" as="geometry" />
@@ -50,10 +53,7 @@
           <mxGeometry height="30" width="30" x="250" y="105" as="geometry" />
         </mxCell>
         <mxCell id="W2pszy52U0KSxzTIZwHw-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=14;" value="RED B" vertex="1">
-          <mxGeometry height="30" width="61" x="490" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="W2pszy52U0KSxzTIZwHw-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=14;" value="RED A" vertex="1">
-          <mxGeometry height="30" width="61" x="80" y="40" as="geometry" />
+          <mxGeometry height="30" width="61" x="500" y="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
