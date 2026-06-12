@@ -136,9 +136,7 @@ Alternativamente, la infraestructura puede desplegarse desde cero mediante la in
 
 \subsubsection*{Creación de las máquinas virtuales}
 
-Antes de comenzar la instalación de los sistemas operativos, se deben crear las máquinas virtuales en VMware Workstation con las características indicadas en la Tabla~\ref{tab:ips_laboratorio} y en el Capítulo 5.
-
-Cada máquina debe conectarse a la red correspondiente:
+Antes de comenzar la instalación de los sistemas operativos, se deben crear las máquinas virtuales en VMware Workstation con las características indicadas en la Tabla~\ref{tab:ips_laboratorio} y en el Capítulo 5. Cada máquina debe tener los adaptadores necesarios:
 
 \begin{itemize}
     \item \textbf{Ubuntu Server:} adaptador NAT mediante VMnet8 y adaptador interno mediante VMnet10.
@@ -162,7 +160,7 @@ El servidor Ubuntu actúa como máquina víctima principal y aloja el portal web
 
 \subsubsubsection*{Configuración de red en Ubuntu}
 
-Una vez instalado el sistema operativo, se configura la interfaz interna con una dirección IP estática dentro de la red \texttt{10.10.10.0/24}.
+Una vez instalado el sistema operativo, se configura la interfaz interna con una dirección IP estática dentro de la red \texttt{10.10.10.10/24}.
 
 Para ello se edita el fichero de configuración de Netplan:
 
@@ -174,14 +172,14 @@ El contenido del fichero debe ser similar al siguiente. Los nombres de las inter
 
 \begin{configbox}
 network:
-  version: 2
-  ethernets:
+    version: 2
+    ethernets:
     ens33:
-      dhcp4: true
+        dhcp4: true
     ens34:
-      dhcp4: false
-      addresses:
-        - 10.10.10.20/24
+        dhcp4: false
+        addresses:
+        - 10.10.10.10/24
 \end{configbox}
 
 Después de guardar los cambios, se aplica la configuración:
@@ -212,7 +210,6 @@ A continuación se conceden permisos de ejecución al script de instalación y s
 
 \begin{bashbox}
 chmod +x scripts/setup_tfm_lab.sh
-
 sudo ./scripts/setup_tfm_lab.sh
 \end{bashbox}
 
@@ -284,7 +281,7 @@ El procedimiento es el siguiente:
         \rowcolor{blue!10}
         \textbf{Parámetro} & \textbf{Valor} \\
         \hline
-        Dirección IP & 10.10.10.10 \\
+        Dirección IP & 10.10.10.5 \\
         \hline
         Máscara de subred & 255.255.255.0 \\
         \hline
@@ -430,7 +427,7 @@ Tras instalar Windows 7, se configura la dirección IP estática del equipo desd
         \rowcolor{blue!10}
         \textbf{Parámetro} & \textbf{Valor} \\
         \hline
-        Dirección IP & 10.10.10.30 \\
+        Dirección IP & 10.10.10.20 \\
         \hline
         Máscara de subred & 255.255.255.0 \\
         \hline
@@ -518,7 +515,7 @@ ping corp.local
 Desde la máquina atacante o desde un equipo con conectividad hacia el servidor Ubuntu, se comprueba el acceso al portal vulnerable:
 
 \begin{configbox}
-http://10.10.10.20:8080/portal_pyme
+http://10.10.10.10:8080/portal_pyme
 \end{configbox}
 
 Tras completar estas comprobaciones, el laboratorio quedará preparado para ejecutar los escenarios de explotación descritos en el Capítulo 6.

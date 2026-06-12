@@ -50,6 +50,12 @@ Esta es una solución modular y automatizada diseñada para la redacción de Tra
   <em>Figura 1. Portadas de la plantilla</em>
 </p>
 
+> [!WARNING]
+> En caso de usar linux como sistema operativo será necesario instalar las fuentes en el sistema:
+>
+> `sudo cp ruta/del/repo/fonts/*.ttf /usr/share/fonts/`
+
+
 ## 📂 Estructura del Proyecto
 
 ```text
