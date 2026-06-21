@@ -209,11 +209,11 @@ Tras varias iteraciones se comprobó que era posible reducir significativamente 
         \rowcolor{blue!10}
         \textbf{Sistema} & \textbf{Memoria RAM}  \\
         \hline
-        Ubuntu Server 22.04 & 1.5 GB  \\
+        Ubuntu Server 22.04 & 1.2 GB  \\
         \hline
         DC01 (Windows Server 2012) & 1.2 GB  \\
         \hline
-        DEV01 (Windows 7) & 1.5 GB  \\
+        DEV01 (Windows 7) & 1 GB  \\
         \hline
     \end{tabular}
 
@@ -221,7 +221,7 @@ Tras varias iteraciones se comprobó que era posible reducir significativamente 
     \label{tab:optimizacion_memoria}
 \end{table}
 
-Estas pruebas permitieron reducir el consumo total de memoria de la infraestructura hasta aproximadamente 4.2 GB, lo que facilita la ejecución simultánea de todas las máquinas virtuales incluso en equipos con recursos limitados.
+Estas pruebas permitieron reducir el consumo total de memoria de la infraestructura hasta aproximadamente 3.4 GB, lo que facilita la ejecución simultánea de todas las máquinas virtuales incluso en equipos con recursos limitados.
 
 La reducción de recursos no afecta al comportamiento del laboratorio ni a la reproducibilidad de las cadenas de ataque implementadas, manteniendo el equilibrio entre realismo y accesibilidad que se persigue en este proyecto.
 
@@ -258,11 +258,11 @@ La reducción de recursos no afecta al comportamiento del laboratorio ni a la re
 
 Las capturas mostradas en la Figura~\ref{fig:optimizacion_memoria_lab} evidencian el consumo real de memoria de las tres máquinas virtuales tras completar el proceso de optimización. Los resultados obtenidos demuestran que tanto Windows Server 2012 como Windows 7 y Ubuntu Server mantienen una cantidad suficiente de memoria disponible para ejecutar los servicios necesarios del laboratorio.
 
-En el caso del controlador de dominio DC01, con únicamente 1.2 GB de memoria asignada, el sistema conserva aproximadamente 400 MB libres una vez iniciados Active Directory y el servicio DNS. De forma similar, la estación de trabajo DEV01 dispone de cerca de 900 MB disponibles con una asignación total de 1.5 GB, mientras que el servidor Ubuntu mantiene alrededor de 500 MB de memoria disponible tras el despliegue de Docker y del portal vulnerable.
+En el caso del controlador de dominio DC01, con únicamente 1.2 GB de memoria asignada, el sistema conserva aproximadamente 400 MB libres una vez iniciados Active Directory y el servicio DNS. De forma similar, la estación de trabajo DEV01 dispone de cerca de 470 MB disponibles con una asignación total de 1 GB, mientras que el servidor Ubuntu mantiene alrededor de 324 MB de memoria disponible tras el despliegue de Docker y del portal vulnerable.
 
 Estos resultados confirman que las recomendaciones de memoria propuestas por VMware Workstation pueden reducirse considerablemente para este escenario concreto sin comprometer la estabilidad de los servicios ni la reproducibilidad de las cadenas de ataque implementadas.
 
-La optimización realizada permite ejecutar simultáneamente toda la infraestructura utilizando aproximadamente 4.2 GB de memoria RAM, facilitando el despliegue del laboratorio en equipos domésticos o académicos con recursos limitados y contribuyendo a uno de los objetivos principales del proyecto: proporcionar un entorno de entrenamiento accesible sin renunciar al realismo del escenario.
+La optimización realizada permite ejecutar simultáneamente toda la infraestructura utilizando aproximadamente 3.4 GB de memoria RAM, facilitando el despliegue del laboratorio en equipos domésticos o académicos con recursos limitados y contribuyendo a uno de los objetivos principales del proyecto: proporcionar un entorno de entrenamiento accesible sin renunciar al realismo del escenario.
 
 Los valores de memoria finalmente adoptados fueron utilizados durante todas las pruebas de validación y explotación descritas en el Capítulo~\ref{sec:explotacion_del_laboratorio}, verificándose que no introducen limitaciones apreciables en el desarrollo de los distintos escenarios ofensivos implementados.
 
