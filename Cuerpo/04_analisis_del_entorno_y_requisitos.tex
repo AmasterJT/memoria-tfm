@@ -198,11 +198,16 @@ La Tabla~\ref{tab:superficie_ataque} resume los principales activos presentes en
 
 La Figura~\ref{fig:flujo_ataque_laboratorio} representa una posible cadena de ataque sobre la infraestructura diseñada. El escenario parte de la explotación de vulnerabilidades presentes en la aplicación web, continúa con la obtención de acceso al servidor Ubuntu y culmina con el compromiso de los sistemas internos y de la infraestructura Active Directory. Este flujo permite reproducir de forma controlada las distintas fases que suelen observarse en ejercicios de Red Team y pruebas de penetración sobre entornos corporativos.
 
+El flujo representado debe interpretarse como una secuencia lógica de compromiso, no como un conjunto de acciones independientes. Cada fase proporciona información, acceso o privilegios que habilitan la siguiente etapa del ataque. De este modo, la explotación inicial de la aplicación web permite alcanzar el servidor Ubuntu; el compromiso de este sistema facilita la obtención de credenciales y el acceso a la red interna; y, finalmente, dichas credenciales pueden utilizarse para enumerar Active Directory y realizar movimiento lateral hacia otros equipos del dominio.
+
+Esta representación permite justificar la selección de activos y amenazas realizada durante el análisis. El laboratorio no busca únicamente mostrar vulnerabilidades aisladas, sino evidenciar cómo la combinación de errores web, configuraciones inseguras, exposición de credenciales y servicios internos puede derivar en un compromiso progresivo de la infraestructura.
+
+\vfill
 \begin{figure}[H]
     \centering
 
    \begin{tikzpicture}[
-        node distance=0.6cm,
+        node distance=0.9cm,
         fase/.style={
             rectangle,
             rounded corners,
@@ -261,7 +266,7 @@ La Figura~\ref{fig:flujo_ataque_laboratorio} representa una posible cadena de at
     \captionazul{Flujo general de ataque planteado en el laboratorio.}
     \label{fig:flujo_ataque_laboratorio}
 \end{figure}
-
+\vfill
 
 
 % ----------------------------------------------------------
