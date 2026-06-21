@@ -71,15 +71,14 @@ La infraestructura vulnerable desplegada está compuesta por tres máquinas virt
 
 La máquina atacante no forma parte de la infraestructura vulnerable como tal, ya que puede plantearse de dos formas distintas. En primer lugar, si el equipo anfitrión utiliza un sistema operativo orientado a seguridad ofensiva, como Kali Linux o Parrot OS, el propio host puede actuar como máquina atacante. En segundo lugar, si el equipo anfitrión utiliza un sistema operativo de propósito general, como Windows, Linux o macOS, será necesario preparar una máquina virtual atacante adicional con Kali Linux, Parrot OS u otra distribución equivalente.
 
-Los recursos mínimos recomendados para las máquinas virtuales del laboratorio son los siguientes:
+Los recursos recomendados para las máquinas virtuales del laboratorio se han definido tomando como referencia los valores habituales propuestos por VMware Workstation para este tipo de sistemas operativos. Estos valores representan una configuración conservadora, orientada a garantizar un funcionamiento fluido durante la instalación, configuración inicial y ejecución de los servicios principales.
 
 \vspace{0.5cm}
-\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 \renewcommand{\arraystretch}{1.5}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \captionazul{Recursos mínimos recomendados para las máquinas virtuales del laboratorio}
+    \captionazul{Recursos recomendados para las máquinas virtuales del laboratorio}
 
     \setlength{\arrayrulewidth}{0.05mm}
 
@@ -98,60 +97,19 @@ Los recursos mínimos recomendados para las máquinas virtuales del laboratorio 
         Máquina atacante externa (opcional) & 4 cores & 3 GB & 40 GB \\
         \hline
     \end{tabular}
+
     \renewcommand{\arraystretch}{1}
-    \label{tab:recursos_minimos_vm}
+    \label{tab:recursos_recomendados_vm}
 \end{table}
 \vspace{0.5cm}
 
-A partir de estos valores, el equipo anfitrión debería disponer, como mínimo, de 8 núcleos de CPU, 16 GB de memoria RAM y al menos 200 GB de espacio libre en disco para ejecutar el laboratorio con cierta fluidez. No obstante, se recomienda contar con 32 GB de RAM cuando se desee trabajar simultáneamente con todas las máquinas encendidas y realizar pruebas de explotación de forma cómoda.
+A partir de esta configuración, el equipo anfitrión debería disponer de recursos suficientes para ejecutar varias máquinas virtuales de forma simultánea. Para un despliegue completo del laboratorio, incluyendo una máquina atacante externa, se recomienda contar con un procesador de 8 núcleos o superior, 16 GB de memoria RAM y al menos 150 GB de espacio libre en disco.
 
-En caso de que el usuario no disponga previamente de una máquina atacante, será necesario preparar una máquina adicional con una distribución orientada a seguridad ofensiva. Para este sistema se recomienda asignar 4 núcleos de CPU, 3 GB de RAM y 40 GB de disco, aunque estos recursos pueden variar en función de las herramientas instaladas y del uso previsto.
+No obstante, estos valores no deben entenderse como requisitos estrictos, sino como una configuración recomendada para el despliegue inicial. Durante el desarrollo del proyecto se realizaron pruebas de optimización que permitieron reducir de forma significativa la memoria asignada y el espacio ocupado por las máquinas virtuales, manteniendo la estabilidad del laboratorio y la reproducibilidad de los escenarios de ataque.
 
-Por tanto, para un despliegue completo de la infraestructura vulnerable se recomienda que el equipo anfitrión disponga de las siguientes características:
+La optimización concreta de recursos se documenta en el Capítulo~\ref{sec:diseno_del_laboratorio}, dentro del apartado de arquitectura física y optimización del laboratorio. En dicho capítulo se justifica cómo fue posible reducir el consumo real de memoria y almacenamiento para facilitar el despliegue del entorno en equipos domésticos o académicos.
 
-\begin{itemize}
-    \item Procesador de 8 núcleos o superior con soporte de virtualización por hardware.
-    \item 16 GB de memoria RAM recomendados.
-    \item 150 GB de espacio libre en disco como mínimo.
-    \item Capacidad para ejecutar VMware Workstation u otra plataforma de virtualización.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Imagenes/implementacion-VM-en-el-host.png}
-        \subcaptionazul{Equipo anfitrión convencional con máquina atacante externa.}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Imagenes/implementacion-VM-en-el-host-atacante.png}
-        \subcaptionazul{Equipo anfitrión actuando como máquina atacante.}
-    \end{minipage}
-
-    \captionazul{Escenarios de despliegue del laboratorio: con máquina atacante externa y utilizando el propio equipo anfitrión como atacante.}
-    \label{fig:escenarios_despliegue}
-\end{figure}
-
-En el caso del despliegue realizado durante el desarrollo del proyecto, el tamaño real ocupado por las máquinas virtuales fue el siguiente:
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Imagenes/tamaño-lab-en-disco-real.png}
-
-    \vspace{0.2cm}
-    \captionazul{Tamaño aproximado del laboratorio desplegado en el equipo anfitrión, incluyendo máquina atacante.}
-    \label{fig:tamanio_lab_disco_real}
-\end{figure}
-
-
-Aunque la capacidad máxima asignada a las máquinas virtuales de la infraestructura vulnerable asciende a 140 GB, VMware utiliza discos virtuales de crecimiento dinámico, por lo que el espacio ocupado en disco depende del uso real de cada máquina.
-
-Durante las pruebas realizadas, el laboratorio completo desplegado ocupó aproximadamente 93 GB de almacenamiento en el equipo anfitrión. Por este motivo, se recomienda disponer de al menos 150 GB de espacio libre para desplegar la infraestructura vulnerable con margen suficiente para actualizaciones, instantáneas y crecimiento de los datos.
-
-En caso de utilizar una máquina atacante externa virtualizada, la capacidad máxima asignada al conjunto completo ascendería a aproximadamente 180 GB. Para este escenario, se recomienda disponer de alrededor de 200 GB de espacio libre en el equipo anfitrión.
+Por tanto, en esta sección se presentan los recursos recomendados para una instalación cómoda y conservadora, mientras que en el capítulo de diseño se detallan los valores mínimos validados experimentalmente tras el proceso de optimización.
 
 \subsubsection{Software}
 

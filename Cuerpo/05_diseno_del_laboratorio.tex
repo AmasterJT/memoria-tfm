@@ -195,25 +195,27 @@ Uno de los objetivos perseguidos durante el diseño del laboratorio ha sido gara
 
 Aunque VMware Workstation propone configuraciones de memoria superiores para los sistemas operativos utilizados, se realizaron diversas pruebas de ajuste con el objetivo de determinar los recursos mínimos necesarios para mantener un funcionamiento estable del entorno.
 
-Tras varias iteraciones se comprobó que era posible reducir significativamente la memoria asignada a las máquinas virtuales sin afectar al correcto desarrollo de los escenarios de ataque ni al funcionamiento de los servicios desplegados. La Tabla~\ref{tab:optimizacion_memoria} resume la configuración mínima validada durante las pruebas realizadas.
+Tras varias iteraciones se comprobó que era posible reducir significativamente tanto la memoria asignada como el tamaño del disco de las máquinas virtuales sin afectar al correcto desarrollo de los escenarios de ataque ni al funcionamiento de los servicios desplegados. 
+
+La Tabla~\ref{tab:optimizacion_memoria} resume la configuración mínima validada durante las pruebas realizadas para cada una de las máquinas virtuales.
 
 \vspace{0.5cm}
 \renewcommand{\arraystretch}{1.4}
 
 \begin{table}[H]
     \centering
-    \captionazul{Configuración mínima de memoria validada para las máquinas virtuales}
+    \captionazul{Configuración mínima de recursos validada para las máquinas virtuales}
 
-    \begin{tabular}{|C{6cm}|C{3cm}|}
+    \begin{tabular}{|C{6cm}|C{3cm}|C{3cm}|}
         \hline
         \rowcolor{blue!10}
-        \textbf{Sistema} & \textbf{Memoria RAM}  \\
+        \textbf{Sistema} & \textbf{Memoria RAM}  & \textbf{Disco} \\
         \hline
-        Ubuntu Server 22.04 & 1.2 GB  \\
+        Web Server 22.04 & 1.2 GB  & 20 GB\\
         \hline
-        DC01 (Windows Server 2012) & 1.2 GB  \\
+        DC01 (Windows Server 2012) & 1.2 GB  & 20 GB\\
         \hline
-        DEV01 (Windows 7) & 1 GB  \\
+        DEV01 (Windows 7) & 1 GB  & 16.5 GB\\
         \hline
     \end{tabular}
 
@@ -256,15 +258,32 @@ La reducción de recursos no afecta al comportamiento del laboratorio ni a la re
 \end{figure}
 
 
-Las capturas mostradas en la Figura~\ref{fig:optimizacion_memoria_lab} evidencian el consumo real de memoria de las tres máquinas virtuales tras completar el proceso de optimización. Los resultados obtenidos demuestran que tanto Windows Server 2012 como Windows 7 y Ubuntu Server mantienen una cantidad suficiente de memoria disponible para ejecutar los servicios necesarios del laboratorio.
+Las capturas mostradas en la Figura~\ref{fig:optimizacion_memoria_lab} evidencian el consumo real de memoria de las tres máquinas virtuales tras completar el proceso de optimización. Los resultados obtenidos demuestran que Windows Server 2012, Windows 7 y Ubuntu Server mantienen memoria suficiente para ejecutar los servicios necesarios del laboratorio.
 
-En el caso del controlador de dominio DC01, con únicamente 1.2 GB de memoria asignada, el sistema conserva aproximadamente 400 MB libres una vez iniciados Active Directory y el servicio DNS. De forma similar, la estación de trabajo DEV01 dispone de cerca de 470 MB disponibles con una asignación total de 1 GB, mientras que el servidor Ubuntu mantiene alrededor de 324 MB de memoria disponible tras el despliegue de Docker y del portal vulnerable.
+En el caso del controlador de dominio DC01, con únicamente 1.2 GB de memoria asignada, el sistema conserva aproximadamente 400 MB libres una vez iniciados Active Directory y el servicio DNS. De forma similar, la estación de trabajo DEV01 dispone de varios cientos de megabytes disponibles con una asignación total de 1 GB, mientras que el servidor Ubuntu mantiene memoria libre suficiente tras el despliegue de Docker y del portal vulnerable.
 
-Estos resultados confirman que las recomendaciones de memoria propuestas por VMware Workstation pueden reducirse considerablemente para este escenario concreto sin comprometer la estabilidad de los servicios ni la reproducibilidad de las cadenas de ataque implementadas.
+La optimización no se limitó únicamente a la memoria RAM. También se ajustó el tamaño máximo de los discos virtuales asignados a cada máquina, reduciendo la capacidad inicial prevista a valores más ajustados al uso real del laboratorio. Tras las pruebas realizadas, se validó una configuración de 20 GB para el servidor Ubuntu, 20 GB para DC01 y 16.5 GB para DEV01, manteniendo margen suficiente para el sistema operativo, los servicios desplegados y las evidencias generadas durante las prácticas.
 
-La optimización realizada permite ejecutar simultáneamente toda la infraestructura utilizando aproximadamente 3.4 GB de memoria RAM, facilitando el despliegue del laboratorio en equipos domésticos o académicos con recursos limitados y contribuyendo a uno de los objetivos principales del proyecto: proporcionar un entorno de entrenamiento accesible sin renunciar al realismo del escenario.
+Estos resultados confirman que la configuración inicial recomendada puede reducirse considerablemente para este escenario concreto sin comprometer la estabilidad de los servicios ni la reproducibilidad de las cadenas de ataque implementadas.
 
-Los valores de memoria finalmente adoptados fueron utilizados durante todas las pruebas de validación y explotación descritas en el Capítulo~\ref{sec:explotacion_del_laboratorio}, verificándose que no introducen limitaciones apreciables en el desarrollo de los distintos escenarios ofensivos implementados.
+La optimización realizada permite ejecutar simultáneamente toda la infraestructura utilizando aproximadamente 3.4 GB de memoria RAM y una capacidad máxima de disco notablemente inferior a la prevista inicialmente. Esto facilita el despliegue del laboratorio en equipos domésticos o académicos con recursos limitados y contribuye a uno de los objetivos principales del proyecto: proporcionar un entorno de entrenamiento accesible sin renunciar al realismo del escenario.
+
+Los valores de memoria y disco finalmente adoptados fueron utilizados durante todas las pruebas de validación y explotación descritas en el Capítulo~\ref{sec:explotacion_del_laboratorio}, verificándose que no introducen limitaciones apreciables en el desarrollo de los distintos escenarios ofensivos implementados.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Imagenes/tamaño-lab-en-disco-real.png}
+
+    \vspace{0.2cm}
+    \captionazul{Espacio ocupado por las máquinas virtuales del laboratorio en el equipo anfitrión.}
+    \label{fig:tamanio_lab_disco_real}
+\end{figure}
+
+La Figura~\ref{fig:tamanio_lab_disco_real} muestra el tamaño real ocupado por la infraestructura una vez completada su configuración. En el momento de realizar las pruebas, las tres máquinas virtuales que componen el laboratorio vulnerable, DC01, DEV01 y el servidor web Ubuntu, ocupaban conjuntamente aproximadamente 35.7 GB en el equipo anfitrión.
+
+Este valor es inferior tanto a la capacidad máxima inicialmente planteada como a la capacidad máxima finalmente asignada tras la optimización de los discos virtuales. Esto se debe al uso de discos de crecimiento dinámico, que permiten reservar una capacidad máxima para cada máquina sin ocupar todo ese espacio desde el primer momento.
+
+En conjunto, las optimizaciones realizadas sobre memoria, tamaño máximo de disco y espacio real ocupado permiten ejecutar el laboratorio en equipos domésticos o académicos con recursos moderados, favoreciendo su reutilización y mejorando la reproducibilidad de los escenarios de ataque implementados. De esta forma, el diseño final mantiene un equilibrio entre realismo, accesibilidad y eficiencia en el consumo de recursos.
 
 % ==========================================================
 \subsubsection{Arquitectura lógica}
