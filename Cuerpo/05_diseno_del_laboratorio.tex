@@ -20,7 +20,7 @@ El diseño del laboratorio constituye uno de los elementos fundamentales del pro
 
 Para ello se ha optado por una arquitectura compuesta por varios sistemas virtualizados que representan distintos activos de una empresa. Esta aproximación permite separar los diferentes servicios, facilitar la gestión del entorno y reproducir de forma más realista las técnicas utilizadas habitualmente durante ejercicios de Red Team y pruebas de penetración.
 
-La infraestructura resultante combina sistemas Linux y Windows, servicios web basados en PHP con docker y apache, Active Directory y estaciones de trabajo corporativas, proporcionando múltiples superficies de ataque y permitiendo la ejecución de escenarios que abarcan desde la explotación inicial de una vulnerabilidad web hasta el compromiso
+La infraestructura resultante combina sistemas Linux y Windows, servicios web basados en PHP con Docker y Apache, Active Directory y estaciones de trabajo corporativas, proporcionando múltiples superficies de ataque y permitiendo la ejecución de escenarios que abarcan desde la explotación inicial de una vulnerabilidad web hasta el compromiso
 completo de una infraestructura interna.
 
 % ==========================================================
@@ -29,7 +29,7 @@ completo de una infraestructura interna.
 
 La arquitectura general del laboratorio ha sido diseñada siguiendo una estructura escalonada que obliga al atacante a progresar a través de distintas fases de compromiso. De esta forma, el acceso a los sistemas internos no es directo, sino que requiere explotar vulnerabilidades, obtener credenciales y realizar movimientos laterales similares a los que se producen en ataques reales.
 
-El entorno está compuesto por tres máquinas virtuales principales que  onstituyen la infraestructura vulnerable:
+El entorno está compuesto por tres máquinas virtuales principales que  constituyen la infraestructura vulnerable:
 
 \begin{itemize}
     \item Un servidor Ubuntu Server 22.04 encargado de alojar la aplicación web
@@ -476,7 +476,7 @@ Con el objetivo de reproducir este tipo de situaciones, se ha diseñado una infr
 
 La arquitectura propuesta mantiene un nivel de complejidad suficiente para simular un entorno empresarial realista sin incrementar excesivamente los requisitos hardware necesarios para su ejecución.
 
-Los detalles completos relativos a la instalación y personalización de la infraestructura Active Directory se incluyen en el Anexo~\ref{anexo:implementacion_active_directory}: \textit{Implementación de Active Directory}, donde se documenta el proceso de promoción del controlador de dominio, la creación de usuarios y grupos, la configuración de políticas y la integración de los equipos del dominio.
+%Los detalles completos relativos a la instalación y personalización de la infraestructura Active Directory se incluyen en el Anexo~\ref{anexo:implementacion_active_directory}: \textit{Implementación de Active Directory}, donde se documenta el proceso de promoción del controlador de dominio, la creación de usuarios y grupos, la configuración de políticas y la integración de los equipos del dominio.
 
 % IMAGEN RECOMENDADA
 % Diagrama simplificado de Active Directory.

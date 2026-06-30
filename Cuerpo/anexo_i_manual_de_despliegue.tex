@@ -18,7 +18,7 @@ Como primer paso debemos configurar la red VMnet10 en VMware Workstation, que se
 
 \subsection*{Configuración de la red VMnet10 en VMware Workstation}
 
-Configuracion de dos redes virtuales en VMware Workstation. N Normalmente \texttt{VMnet8} viene preconfigurada como red NAT, por lo que es posible que ya exista, sin embargo, es necesario crear una nueva red interna  \texttt{VMnet10} para la simulación de la red corporativa.
+Configuración de dos redes virtuales en VMware Workstation. N Normalmente \texttt{VMnet8} viene preconfigurada como red NAT, por lo que es posible que ya exista, sin embargo, es necesario crear una nueva red interna  \texttt{VMnet10} para la simulación de la red corporativa.
 
 \vspace{0.5cm}
 \begin{tcolorbox}[
@@ -80,7 +80,7 @@ En VMware Workstation.
 
 
 
-Una vez llegamos a este punto, la red interna VMnet10 queda correctamente configurada y lista para ser utilizada por las máquinas virtuales del laboratorio. Ahora falta asignarlas a cada máquian virtual según sea el caso.
+Una vez llegamos a este punto, la red interna VMnet10 queda correctamente configurada y lista para ser utilizada por las máquinas virtuales del laboratorio. Ahora falta asignarlas a cada máquina virtual según sea el caso.
 
 Dependiendo del método de despliegue elegido, las máquinas virtuales pueden venir preconfiguradas con la interfaz de red interna VMnet10 o bien será necesario asignarla manualmente durante la instalación.
 
@@ -136,7 +136,8 @@ Alternativamente, la infraestructura puede desplegarse desde cero mediante la in
 
 \subsubsection*{Creación de las máquinas virtuales}
 
-Antes de comenzar la instalación de los sistemas operativos, se deben crear las máquinas virtuales en VMware Workstation con las características indicadas en la Tabla~\ref{tab:ips_laboratorio} y en el Capítulo 5. Cada máquina debe tener los adaptadores necesarios:
+Antes de instalar los sistemas operativos, se deben crear las máquinas virtuales en VMware Workstation utilizando la configuración recomendada en la Figura~\ref{fig:configuracion_vm} o, alternativamente, los valores optimizados recogidos en la Tabla~\ref{tab:optimizacion_memoria}. Además, cada máquina debe disponer de los adaptadores de red necesarios:
+
 
 \begin{itemize}
     \item \textbf{Ubuntu Server:} adaptador NAT mediante VMnet8 y adaptador interno mediante VMnet10.
@@ -272,7 +273,7 @@ El procedimiento es el siguiente:
 
 \begin{table}[h]
     \centering
-    \captionazul{Configuracion de la dirección IP en DC01.}
+    \captionazul{Configuración de la dirección IP en DC01.}
 
     \setlength{\arrayrulewidth}{0.05mm}
 
@@ -369,8 +370,6 @@ Una vez creado el dominio, se configuran los elementos básicos necesarios para 
     \item Servicios de administración remota.
 \end{itemize}
 
-Los detalles completos relativos a la personalización del dominio, creación de usuarios, grupos y políticas se documentan en el Anexo~\ref{anexo:implementacion_active_directory}.
-
 % ------------------------------------------------------
 \subsubsection*{Instalación de la estación DEV01}
 % ------------------------------------------------------
@@ -418,7 +417,7 @@ Tras instalar Windows 7, se configura la dirección IP estática del equipo desd
 
 \begin{table}[h]
     \centering
-    \captionazul{Configuracion de la dirección IP en DEV01.}
+    \captionazul{Configuración de la dirección IP en DEV01.}
 
     \setlength{\arrayrulewidth}{0.05mm}
 

@@ -6,7 +6,32 @@
 \label{sec:conclusiones_y_trabajo_futuro}
 
 % ---------------------------------------------------
-
 \subsection{Conclusiones}
 
+El presente Trabajo Fin de Máster ha permitido diseñar, implementar y validar un laboratorio de entrenamiento orientado a ejercicios de Red Team, construido sobre una infraestructura híbrida compuesta por un servidor Linux vulnerable y un entorno corporativo basado en Active Directory. El laboratorio reproduce de forma controlada una cadena completa de compromiso, desde la explotación inicial de una aplicación web hasta el acceso a la infraestructura interna y el compromiso del dominio, permitiendo recorrer las principales fases presentes en un ataque real.
+
+Durante el desarrollo del proyecto se definieron los requisitos funcionales y técnicos del entorno, se diseñó la arquitectura lógica y física de la infraestructura y se implementaron los distintos componentes necesarios para simular un escenario corporativo vulnerable. La aplicación web incorpora múltiples vulnerabilidades representativas del Top 10 de OWASP, mientras que la infraestructura Windows reproduce servicios y configuraciones habituales en entornos empresariales, permitiendo practicar técnicas de post-explotación, movimiento lateral y enumeración de Active Directory.
+
+La validación realizada demuestra que todos los escenarios previstos pueden reproducirse de forma consistente siguiendo una secuencia lógica de ataque. Los resultados obtenidos durante las pruebas confirman que cada una de las vulnerabilidades implementadas cumple el propósito para el que fue diseñada y que la cadena de compromiso puede ejecutarse íntegramente sin necesidad de modificar la configuración del laboratorio.
+
+Uno de los aspectos más relevantes del trabajo ha sido la optimización de los recursos hardware necesarios para su ejecución. A partir de la configuración inicialmente recomendada por VMware Workstation, se realizaron diversas pruebas experimentales que permitieron reducir significativamente la memoria RAM asignada, el tamaño de los discos virtuales y el espacio real ocupado por la infraestructura, manteniendo la estabilidad del laboratorio y la reproducibilidad de los escenarios ofensivos. Esta optimización facilita el despliegue del entorno sobre equipos domésticos o académicos y mejora su accesibilidad para estudiantes e investigadores.
+
+Con el objetivo de favorecer la reutilización del laboratorio, también se ha desarrollado un conjunto de scripts de automatización y documentación técnica que permiten desplegar la infraestructura desde cero o importar directamente las máquinas virtuales previamente configuradas. Asimismo, se incluyen anexos con el procedimiento detallado de instalación, explotación e implementación de los distintos componentes, facilitando la reproducción de los escenarios por parte de terceros.
+
+En conjunto, el laboratorio desarrollado constituye una plataforma reproducible para la enseñanza y el entrenamiento en ciberseguridad ofensiva. Su diseño modular permite comprender cómo se relacionan las diferentes fases de un ataque real, integrando conocimientos de seguridad web, sistemas Linux, Active Directory, movimiento lateral y pivoting dentro de un único entorno práctico.
+
+En definitiva, el trabajo desarrollado demuestra que es posible construir un laboratorio de Red Team realista, reproducible y accesible utilizando tecnologías ampliamente disponibles y recursos hardware moderados. La documentación generada, los procedimientos de despliegue y los escenarios de explotación implementados permiten que cualquier estudiante o investigador pueda reproducir el entorno y utilizarlo como plataforma de aprendizaje, experimentación o ampliación de nuevos escenarios, contribuyendo así a la formación práctica en ciberseguridad ofensiva.
+
 \subsection{Líneas futuras}
+
+Aunque el laboratorio desarrollado cumple los objetivos planteados inicialmente, existen diversas líneas de trabajo que permitirían ampliar sus capacidades y aumentar el realismo de los escenarios reproducidos.
+
+Una posible mejora consiste en incorporar mecanismos de detección y monitorización mediante soluciones SIEM y EDR, permitiendo utilizar el laboratorio no solo para ejercicios de Red Team, sino también para actividades de Blue Team y Purple Team. La integración de herramientas como Wazuh, Microsoft Defender for Endpoint o Sysmon facilitaría el análisis de la actividad generada durante los ataques y la evaluación de mecanismos de detección.
+
+Otra línea de evolución consiste en ampliar la infraestructura Active Directory mediante la incorporación de nuevos equipos, servidores adicionales, relaciones de confianza entre dominios y configuraciones más complejas de políticas de grupo. Esto permitiría reproducir escenarios corporativos de mayor tamaño y entrenar técnicas avanzadas de movimiento lateral, persistencia y escalada de privilegios.
+
+Desde el punto de vista de la aplicación web, el laboratorio podría enriquecerse incorporando nuevas vulnerabilidades representativas de versiones recientes del OWASP Top 10, así como mecanismos de autenticación modernos, APIs REST y arquitecturas basadas en microservicios, permitiendo ampliar el catálogo de técnicas de explotación disponibles.
+
+Asimismo, el sistema de despliegue podría evolucionar hacia una infraestructura completamente automatizada mediante herramientas de Infraestructura como Código, como Terraform o Ansible, facilitando la creación del laboratorio sobre distintos hipervisores o incluso sobre plataformas cloud.
+
+Finalmente, una línea especialmente interesante consiste en desarrollar un sistema de evaluación automática capaz de registrar el progreso de los alumnos durante la resolución de los distintos escenarios. Este sistema permitiría generar métricas objetivas sobre el desarrollo de las prácticas y facilitaría la utilización del laboratorio como plataforma docente dentro de asignaturas relacionadas con la ciberseguridad ofensiva.
