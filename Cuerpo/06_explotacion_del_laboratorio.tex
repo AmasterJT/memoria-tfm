@@ -1,9 +1,11 @@
-\vspace*{-1cm}
+\vspace*{-0.75cm}
 
 \nombreCapituloCabecera{RH}{Explotación del laboratorio}
 
 \section{Explotación del laboratorio}
 \label{sec:explotacion_del_laboratorio}
+\vspace{0.7cm}
+
 
 El objetivo de este capítulo es documentar la validación práctica del laboratorio mediante la ejecución de una cadena de ataque completa sobre la infraestructura diseñada. A diferencia de una validación basada en vulnerabilidades aisladas, la explotación se presenta siguiendo una secuencia lógica de compromiso, desde el reconocimiento inicial del servicio expuesto hasta el compromiso final de la infraestructura interna.
 
@@ -200,15 +202,6 @@ El compromiso de DEV01 representa la fase de movimiento lateral dentro de la inf
 Una vez obtenida conectividad hacia la red interna, se procedió a enumerar los sistemas y servicios asociados a la infraestructura Active Directory. El objetivo de esta fase consistió en identificar el controlador de dominio, reconocer los servicios expuestos y recopilar información útil para el compromiso final.
 
 El escaneo del sistema DC01 permitió identificar servicios característicos de un controlador de dominio Windows Server, como DNS, Kerberos, LDAP, SMB, Global Catalog, WinRM y Active Directory Web Services. La información obtenida permitió confirmar el nombre del equipo, el dominio \texttt{corp.local} y el rol del sistema dentro de la infraestructura.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{Imagenes/scaneo-DC01-detalle.png}
-
-    \vspace{0.2cm}
-    \captionazul{Detalle de servicios expuestos por DC01, incluyendo servicios propios de Active Directory.}
-    \label{fig:scaneo_dc01_detalle}
-\end{figure}
 
 Esta fase permitió validar que la segmentación de red y la infraestructura Active Directory se comportaban conforme al diseño planteado. El controlador de dominio no era accesible inicialmente desde la máquina atacante, pero sí podía ser alcanzado tras comprometer el servidor Ubuntu y establecer el túnel hacia la red interna.
 

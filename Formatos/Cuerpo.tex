@@ -50,8 +50,8 @@
 % =========================================================
 
 \titleformat{\section}[display]
-  {\vspace*{0.5cm}\selectfont\bfseries\color{black}}
-  {\fontsize{20pt}{20pt}\selectfont Capítulo \thesection}
+  {\vspace*{0.3cm}\selectfont\bfseries\color{black}}
+  {\vspace*{0.15cm}\fontsize{20pt}{20pt}\selectfont Capítulo \thesection}
   {0pt}
   {\fontsize{24pt}{24pt}\selectfont}
 % Define el estilo de \section como un título grande en formato display.
@@ -135,36 +135,36 @@
 % --- Secciones (Capítulos) ---
 \titlecontents{section}
   [0pt] % Sin sangría
-  {\fontspec{Calibri}\addvspace{10pt}\fontsize{11pt}{14pt}}
+  {\fontspec{Calibri}\addvspace{10pt}\fontsize{11pt}{11pt}}
   {Capítulo \thecontentslabel\;} % Ej: "Capítulo 1"
   {}
-  {\titlerule*[0.7pc]{.}\contentspage}
+  {\titlerule*[0.4pc]{.}\contentspage\vspace{-6pt}}
 
 % --- Subsecciones (primera versión, redundante) ---
 \titlecontents{subsection}
   [2em]
-  {\addvspace{2pt}\normalfont}
+  {\fontspec{Calibri}\addvspace{2pt}\normalfont}
   {\thecontentslabel\quad}
   {}
-  {\titlerule*[0.7pc]{.}\contentspage}
+  {\titlerule*[0.4pc]{.}\contentspage}
 
 % --- Subsecciones (segunda versión, la que realmente usabas) ---
-\titlecontents{subsection}
-  [2em]
-  {\addvspace{1pt}\sffamily\fontsize{11pt}{12pt}\selectfont}
-  {\thecontentslabel\quad}
-  {}
-  {\titlerule*[0.8pc]{.}\contentspage}
+% \titlecontents{subsection}
+%   [2em]
+%   {\fontspec{Calibri}\addvspace{1pt}\sffamily\fontsize{11pt}{12pt}\selectfont}
+%   {\thecontentslabel\quad}
+%   {}
+%   {\titlerule*[0.4pc]{.}\contentspage}
 
 % --- Subsubsecciones ---
 \titlecontents{subsubsection}
   [4.0em]
-  {\addvspace{1pt}\normalfont\fontsize{10pt}{12pt}\selectfont}
+  {\addvspace{1pt}\normalfont\fontsize{10pt}{12pt}\selectfont\fontspec{Calibri}}
   {\thecontentslabel\quad}
   {}
-  {\titlerule*[0.8pc]{.}\contentspage}
+  {\titlerule*[0.4pc]{.}\contentspage}
 
-
+ 
 \titlecontents{figure}
   [0pt]
   {\color{black}\fontspec{Calibri}\addvspace{5pt}\fontsize{11pt}{14pt}\color{black}}
@@ -180,10 +180,7 @@
   {\color{black}\titlerule*[0.7pc]{.}\contentspage}
 
 
-\addto\captionsspanish{%
-  \renewcommand{\contentsname}{Índice de contenidos}%
-  \renewcommand{\refname}{Bibliografía}%
-}
+
 
 % Compatibilidad con plantilla previa
-\addto\captionsgalician{\renewcommand{\contentsname}{Contenido}}
+%\addto\captionsgalician{\renewcommand{\contentsname}{Contenido}}

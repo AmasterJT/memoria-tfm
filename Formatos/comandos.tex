@@ -284,7 +284,7 @@
 % Ejemplo:
 % \crearIndiceTOC
 \newcommand{\crearIndiceTOC}{%
-    \vspace*{-2.5cm}%
+    \vspace*{-0.7cm}%
     \tableofcontents%
 }
 
@@ -294,7 +294,7 @@
 % Ejemplo:
 % \crearIndiceTablas
 \newcommand{\crearIndiceTablas}{%
-    \vspace*{-2.5cm}%
+    \vspace*{-0.7cm}%
     \listoftables%
 }
 
@@ -304,7 +304,7 @@
 % Ejemplo:
 % \crearIndiceFiguras
 \newcommand{\crearIndiceFiguras}{%
-    \vspace*{-2.5cm}%
+    \vspace*{-0.7cm}%
     \listoffigures%
 }
 
@@ -344,7 +344,7 @@
 
 \newcommand{\crearanexo}[2]{%
     \clearpage
-    \vspace*{-1cm}
+    \vspace*{-0.75cm}
     \refstepcounter{anexo}%
     \phantomsection
     \addcontentsline{toc}{section}{Anexo \theanexo\ - #1}
@@ -439,3 +439,29 @@
 
 \titlespacing*{\subsubsubsection}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+
+
+
+% ==========================================================
+% Modo libro
+% ==========================================================
+
+\newif\ifbooklayout
+
+% Activar/desactivar el comportamiento de libro
+\booklayoutfalse      % <-- Artículo (actual)
+%\booklayouttrue      % <-- Libro (capítulos en páginas impares)
+
+\newcommand{\cleartooddpage}{%
+    \ifbooklayout
+        \clearpage
+        \ifodd\value{page}
+        \else
+            \thispagestyle{empty}
+            \null
+            \clearpage
+        \fi
+    \fi
+}

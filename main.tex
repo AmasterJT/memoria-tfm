@@ -48,14 +48,15 @@
   top=3.5cm,
   bottom=3cm,
   headheight=18pt,
-  headsep=0.5cm,
-  footskip=2cm
+  headsep=1.3cm,
+  footskip=2.5cm
 }
 
 %\usepackage{parskip}
 \usepackage{setspace}
 \onehalfspacing
-
+\setlength{\parskip}{8pt} %Espaciado entre párrafos
+\setlength{\parindent}{0cm} %sangria de párrafo
 
 % =========================================================
 % PAQUETES GENERALES
@@ -90,7 +91,7 @@
 %\usepackage{minted}
 \tcbuselibrary{listings,skins,breakable}
 
-\newcommand{\Romanref}[1]{\uppercase\expandafter{\romannumeral\getrefnumber{#1}}}
+\newcommand{\Romanref}[1]{\uppercase\expandafter{\Romannumeral\getrefnumber{#1}}}
 
 
 \usetikzlibrary{positioning, arrows.meta, shapes.geometric}
@@ -122,6 +123,12 @@
   labelsep=space
 }
 
+\addto\captionsspanish{%
+  \renewcommand{\contentsname}{Índice de contenidos}%
+  \renewcommand{\listfigurename}{Índice de figuras}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+  \renewcommand{\refname}{Bibliografía}%
+}
 
 % =========================================================
 % BIBLIOGRAFÍA
@@ -179,26 +186,41 @@
 % ---------------------------------------------------------
 % PRELIMINARES
 % ---------------------------------------------------------
-\pagenumbering{roman}
+\pagenumbering{Roman}
 \pagestyle{plain}
 
+\cleartooddpage
 \include{Cuerpo/00_Resumen_Abstract}
 
-%\input{Formatos/Contenido_roman}
 
+\cleartooddpage
 \clearpage
 \crearIndiceTOC
 
+\cleartooddpage
 \clearpage
 \crearIndiceFiguras
 
+\cleartooddpage
 \clearpage
 \crearIndiceTablas
 
 % ---------------------------------------------------------
 % CUERPO PRINCIPAL
 % ---------------------------------------------------------
+
 \clearpage
+
+\newgeometry{
+  left=30mm,
+  right=30mm,
+  top=40mm,
+  bottom=30mm,
+  headheight=31.1pt,
+  headsep=1.3cm,
+  footskip=1.5cm
+}
+
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \input{Formatos/Contenido}
@@ -210,29 +232,47 @@
 
 
 % 1 Introducción
+\cleartooddpage
 \include{Cuerpo/01_introduccion}
 
 % 2 Fundamentos teóricos
+\cleartooddpage
 \include{Cuerpo/02_fundamentos_teoricos}
 
 % 3 Gestión y metodología del proyecto
+\cleartooddpage
 \include{Cuerpo/03_gestion_y_metodologia_del_proyecto}
 
 % 4 Análisis del entorno y requisitos
+\cleartooddpage
 \include{Cuerpo/04_analisis_del_entorno_y_requisitos}
 
 % 5 Diseño del laboratorio
+\cleartooddpage
 \include{Cuerpo/05_diseno_del_laboratorio}
 
 % 6 Validación y explotación del laboratorio
+\cleartooddpage
 \include{Cuerpo/06_explotacion_del_laboratorio}
 
 % 7 Conclusiones y trabajo futuro
+\cleartooddpage
 \include{Cuerpo/07_conclusiones_y_trabajo_futuro}
+
+
+% USO RSPONSABLE IA
+% =========================================================
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Uso responsable de la Inteligencia Artificial}
+
+
+\include{Uso-responsable-IA/uso-responsable-ia}
 
 
 % BIBLIOGRAFÍA
 % =========================================================
+\cleartooddpage
 \clearpage
 \vspace*{-1cm}
 
@@ -248,28 +288,36 @@
 
 
 % Anexo i - Manual de despliegue
+\cleartooddpage
 \include{Cuerpo/anexo_i_manual_de_despliegue}
 
 
 % Anexo ii - Reconocimiento y login
+\cleartooddpage
 \include{Cuerpo/anexo_ii_reconocimiento_login}
 
 % Anexo iii - Tickets: SQLi, XSS e IDOR
+\cleartooddpage
 \include{Cuerpo/anexo_iii_tickets_sqli_xss_idor}
 
 % Anexo iv - File Upload y RCE
+\cleartooddpage
 \include{Cuerpo/anexo_iv_file_upload_rce}
 
 % Anexo v - Payloads PHP y XSS
+\cleartooddpage
 \include{Cuerpo/anexo_v_payloads_php_xss}
 
 % Anexo vi - Pivoting con Ligolo
+\cleartooddpage
 \include{Cuerpo/anexo_vi_pivoting_ligolo}
 
 % Anexo vii - Movimiento lateral a DEV01
+\cleartooddpage
 \include{Cuerpo/anexo_vii_movimiento_lateral_dev01}
 
 % Anexo viii - Compromiso de DC01
+\cleartooddpage
 \include{Cuerpo/anexo_viii_compromiso_dc01}
 
 
